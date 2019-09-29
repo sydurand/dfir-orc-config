@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<toolembed>
+
+  <input>.\tools\DFIR-Orc_x86.exe</input>
+  <output>.\output\%ORC_OUTPUT%</output>
+
+  <run64 args="FastFind">7z:#Tools|DFIR-Orc_x64.exe</run64>
+  <run32 args="FastFind">self:#</run32>
+  
+  <file name="FASTFIND_CONFIG"  path=".\%ORC_CONFIG_FOLDER%\FastFind_config.xml" />
+  <file name="ruleset.yara" path=".\%ORC_CONFIG_FOLDER%\ruleset.yara"/>
+
+  <archive name="Tools" format="7z" compression="Ultra">
+    <file name="DFIR-Orc_x64.exe"          path=".\tools\DFIR-Orc_x64.exe" />
+  </archive>
+
+</toolembed>

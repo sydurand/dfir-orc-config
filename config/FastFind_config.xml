@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<fastfind version="V0.5">
+<!--
+  <logging noconsole=""/>
+-->
+
+  <filesystem>
+    <location shadows="no">%SystemDrive%\</location>
+
+    <ntfs_find sha256="e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"/>
+    <ntfs_find name="cmd.exe" />
+
+<!--
+    <yara block="20M" overlap="2M" timeout="20" source="res:#ruleset.yara"/> 
+    <ntfs_find size_le="8M" yara_rule="*"/>
+-->
+
+  </filesystem>
+
+<!--
+  <registry>    
+    <location shadows="yes">%SystemDrive%\</location>
+
+    <hive name="NTUSER">
+      <ntfs_find name="NTUSER.DAT" />
+
+      <registry_find key_path="\SOFTWARE\AccessData\FTK Imager\imaging\prescan" value="0"/> 
+    </hive>
+  </registry>
+-->
+
+</fastfind>
