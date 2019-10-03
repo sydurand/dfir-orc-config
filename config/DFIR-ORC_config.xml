@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <wolf childdebug="no" command_timeout="600">
-    <log disposition="truncate">DFIR-ORC_{SystemType}_{FullComputerName}_{TimeStamp}.log</log>
+    <log disposition="truncate">ORCSYS_{SystemType}_{FullComputerName}_{TimeStamp}.log</log>
 
-    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Main.7z" keyword="Main" concurrency="2" repeat="Once" compression="fast">
+    <archive name="ORCSYS_{SystemType}_{FullComputerName}_Main.7z" keyword="Main" concurrency="2" repeat="Once" compression="fast">
         <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="2G" ElapsedTimeLimit="360"/>
 
         <command keyword="SystemInfo">
@@ -76,11 +76,7 @@
             <argument>/config=res:#GetArtefacts_config.xml</argument>
             <output name="Artefacts.7z" source="File" argument="/out={FileName}"/>
             <output name="Artefacts.log" source="StdOutErr"/>
-		</command>
-    </archive>
-
-    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Hives.7z" keyword="Hives" concurrency="2" repeat="Once" compression="fast">
-        <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="1G" ElapsedTimeLimit="360"/>
+        </command>
 
         <command keyword="GetSystemHives">
             <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
@@ -102,9 +98,10 @@
             <output name="SAM.7z" source="File" argument="/out={FileName}"/>
             <output name="SAM.log" source="StdOutErr"/>
         </command>
+
     </archive>
 
-    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Yara.7z" keyword="Yara" concurrency="2" repeat="Once" compression="fast" archive_timeout="240" optional="yes">
+    <archive name="ORCYARA_{SystemType}_{FullComputerName}_Yara.7z" keyword="Yara" concurrency="2" repeat="Once" compression="fast" archive_timeout="240" optional="yes">
         <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="3G" ElapsedTimeLimit="240"/>
 
         <command keyword="GetYara">
@@ -113,5 +110,6 @@
             <output name="Yara.7z" source="File" argument="/out={FileName}"/>
             <output name="Yara.log" source="StdOutErr"/>
         </command>
+
     </archive>
 </wolf>
