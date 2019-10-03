@@ -10,7 +10,7 @@
         </sample>
 
         <sample name="LNK" MaxPerSampleBytes="20MB">
-            <ntfs_find path_match="*.lnk"/>
+            <ntfs_find ntfs_find="*.lnk"/>
         </sample>
 
         <sample name="AmCache" MaxPerSampleBytes="120MB">
