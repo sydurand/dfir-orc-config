@@ -18,10 +18,12 @@
     <file name="FatInfoHashPE_config.xml" path=".\%ORC_CONFIG_FOLDER%\FatInfoHashPE_config.xml"/>
     <file name="GetArtefacts_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetArtefacts_config.xml"/>
     <file name="GetYaraSamples_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetYaraSamples_config.xml"/>
-    <file name="ruleset.yara" path=".\%ORC_CONFIG_FOLDER%\ruleset.yara"/>
+	<file name="GetMemFiles_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetMemFiles_config.xml"/>
+	<file name="ruleset.yara" path=".\%ORC_CONFIG_FOLDER%\ruleset.yara"/>
 
     <archive name="Tools" format="7z" compression="Ultra">
         <file name="DFIR-Orc_x64.exe" path=".\tools\DFIR-Orc_x64.exe"/>
         <file name="autorunsc.exe" path=".\tools\autorunsc.exe"/>
+		<file name="winpmem.exe" path=".\tools\winpmem.exe"/>
     </archive>
 </toolembed>
