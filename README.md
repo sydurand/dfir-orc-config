@@ -71,6 +71,18 @@ DFIR-Orc.exe /keys
 
 You can add or del commands or archives with `+key=` or `-key=`.
 
+For example you can just do memory with this command :
+
+```
+DFIR-Orc.exe /-key=Main
+```
+
+Or just the main part with :
+
+```
+DFIR-Orc.exe /-key=Memory
+```
+
 ## Authors and contributors
 
 Authors and contributors are the same as listed in the
