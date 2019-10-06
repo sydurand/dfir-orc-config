@@ -83,6 +83,14 @@ Or just the main part with :
 DFIR-Orc.exe /-key=Memory
 ```
 
+You can add NTFSInfoHashPE and FatInfoHashPE with this command :
+
+```
+DFIR-Orc.exe /+key=NTFSInfoHashPE,FatInfoHashPE
+```
+
+Warn: MD5 from all PEs will take time... you can update __command_timeout__ and __ElapsedTimeLimit__.
+
 ## Authors and contributors
 
 Authors and contributors are the same as listed in the
