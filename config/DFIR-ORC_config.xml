@@ -11,7 +11,7 @@
 	<archive name="ORCMEM_{SystemType}_{FullComputerName}_{TimeStamp}_Memory.7z" keyword="Memory" concurrency="2" repeat="Once" compression="fast" archive_timeout="240">
 		<restrictions JobMemoryLimit="3G" ProcessMemoryLimit="3G" ElapsedTimeLimit="240"/>
 
-		<!--GetMemory command to use "winpmem.exe --output -" stream to StdOut -->
+		<!--GetMemory command to use "winpmem.exe output -" stream to StdOut -->
 		<command keyword="GetMemory">
 			<execute name="winpmem.exe" run="7z:#Tools|winpmem.exe"/>
 			<argument>--output -</argument>
