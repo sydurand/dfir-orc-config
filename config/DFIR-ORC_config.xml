@@ -77,9 +77,22 @@
             <output name="Artefacts.7z" source="File" argument="/out={FileName}"/>
             <output name="Artefacts.log" source="StdOutErr"/>
 		</command>
+
+        <command keyword="GetSamples">
+            <execute name="DFIR-Orc.exe" run="self:#GetSamples" />
+            <argument>/config=res:#getsamples</argument>
+            <output  name="GetSamples_sampleinfo.csv"  source="File"  argument="/sampleinfo={FileName}" />
+            <output  name="GetSamples_timeline.csv"  source="File"  argument="/timeline={FileName}" />
+            <output  name="GetSamples_autoruns.xml"  source="File"  argument="/autoruns={FileName}" />
+            <output  name="GetSamples_getthis.xml"  source="File"  argument="/getthis={FileName}" />
+            <output  name="GetSamples.7z"  source="File"  argument="/out={FileName}" />
+            <output  name="GetSamples.log" source="StdOutErr" />
+        </command>
+
+
     </archive>
 
-    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Hives.7z" keyword="Hives" concurrency="2" repeat="Once" compression="fast">
+    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Hives.7z" keyword="Hives" concurrency="2" repeat="Once" compression="fast" optional="yes">
         <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="1G" ElapsedTimeLimit="360"/>
 
         <command keyword="GetSystemHives">
