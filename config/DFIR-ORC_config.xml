@@ -18,7 +18,7 @@
 			<output name="Memory_{FullComputerName}_{TimeStamp}.aff4" source="StdOut"/>
 			<output name="Winpmem.log" source="StdErr"/>
 		</command>
-		
+
 		<command keyword="GetMemFiles">
 			<execute name="DFIR-Orc.exe" run="self:#GetThis"/>
 			<argument>/config=res:#GetMemFiles_config.xml</argument>
@@ -128,6 +128,27 @@
             <argument>/config=res:#GetSamHive_config.xml</argument>
             <output name="SAM.7z" source="File" argument="/out={FileName}"/>
             <output name="SAM.log" source="StdOutErr"/>
+        </command>
+
+        <command keyword="GetBrowserHistory">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetBrowserHistory_config.xml</argument>
+            <output name="BrowserHistory.7z" source="File" argument="/out={FileName}"/>
+            <output name="BrowserHistory.log" source="StdOutErr"/>
+        </command>
+
+        <command keyword="GetScripts">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetScripts_config.xml</argument>
+            <output name="Scripts.7z" source="File" argument="/out={FileName}"/>
+            <output name="Scripts.log" source="StdOutErr"/>
+        </command>
+
+        <command keyword="GetTempExe">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetTempExe_config.xml</argument>
+            <output name="TempExe.7z" source="File" argument="/out={FileName}"/>
+            <output name="TempExe.log" source="StdOutErr"/>
         </command>
 
     </archive>

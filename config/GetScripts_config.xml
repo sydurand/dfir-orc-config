@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<getthis reportall="">
+  <location>*</location>
+  <output password="V!ruS"/>
+  <samples MaxPerSampleBytes="300KB" MaxSampleCount="5000" MaxTotalBytes="150MB">
+    <sample name="job">
+        <ntfs_find name_match="*.job" />
+    </sample>
+    <sample name="at">
+        <ntfs_find name_match="*.at" />
+    </sample>
+    <sample name="vbs_vbe">
+        <ntfs_find name_match="*.vbs" />
+        <ntfs_find name_match="*.vbe" />
+    </sample>
+    <sample name="bat">
+        <ntfs_find name_match="*.bat" />
+    </sample>
+    <sample name="cmd">
+        <ntfs_find name_match="*.cmd" />
+    </sample>
+    <sample name="ps1">
+        <ntfs_find name_match="*.ps1" />
+    </sample>
+    <sample name="py">
+        <ntfs_find name_match="*.py" />
+    </sample>
+  </samples>
+</getthis>

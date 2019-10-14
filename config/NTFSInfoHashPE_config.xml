@@ -5,6 +5,8 @@
         <default>ComputerName,VolumeID,Default,ExtendedAttribute,RecordInUse,SecDescrID,ADS,FirstBytes</default>
         <default>Details</default>
         <omit SizeGT="100M">MD5,SHA-1,SHA256,PeMD5,PeSHA1,PeSHA256,Authenticode</omit>
+        <add Ext=".pdf">MD5,SHA-1,SHA256</add>
+        <add Ext=".docx">MD5,SHA-1,SHA256</add>
         <add HasPE="">MD5,SHA-1,SHA256,PeMD5,PeSHA1,PeSHA256,Authenticode</add>
     </columns>
 </ntfsinfo>

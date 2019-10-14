@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<getthis reportall="">
+  <location>%SystemDrive%\</location>
+  <samples MaxPerSampleBytes="150MB" MaxSampleCount="4096" MaxTotalBytes="600MB">
+    <sample name="Firefox_History">
+      <ntfs_find path_match="*\Application Data\Mozilla\Firefox\*.sqlite"/>
+      <ntfs_find path_match="*\Application Data\Mozilla\Firefox\*.json"/>
+      <ntfs_find path_match="*\Application Data\Mozilla\Firefox\*.dat"/>
+      <ntfs_find path_match="*\Application Data\Mozilla\Firefox\extensions\*"/>
+      <ntfs_find path_match="*\Application Data\Mozilla\Extensions\*"/>
+      <ntfs_find path_match="*\AppData\*\Mozilla\Firefox\*.default\*.sqlite"/>
+      <ntfs_find path_match="*\AppData\*\Mozilla\Firefox\*.default\*.json"/>
+      <ntfs_find path_match="*\AppData\*\Mozilla\Firefox\*.default\*.dat"/>
+      <ntfs_find path_match="*\AppData\*\Mozilla\Firefox\*.default\extensions\*"/>
+      <ntfs_find path_match="*\AppData\*\Mozilla\Extensions\*"/>
+    </sample>
+
+    <sample name="Chrome_History">
+      <ntfs_find path_match="*\Local Settings\Application Data\Google\Chrome\User Data\Default\*History*"/>
+      <ntfs_find path_match="*\Local Settings\Application Data\Google\Chrome\User Data\Default\*Cookies*"/>
+      <ntfs_find path_match="*\Local Settings\Application Data\Google\Chrome\User Data\Default\*Shortcuts*"/>
+      <ntfs_find path_match="*\Local Settings\Application Data\Google\Chrome\User Data\Default\*Favicons*"/>
+      <ntfs_find path_match="*\Local Settings\Application Data\Google\Chrome\User Data\Default\Extensions\*"/>
+      <ntfs_find path_match="*\AppData\Local\Google\Chrome\User Data\Default\*History*"/>
+      <ntfs_find path_match="*\AppData\Local\Google\Chrome\User Data\Default\*Cookies*"/>
+      <ntfs_find path_match="*\AppData\Local\Google\Chrome\User Data\Default\*Shortcuts*"/>
+      <ntfs_find path_match="*\AppData\Local\Google\Chrome\User Data\Default\*Favicons*"/>
+      <ntfs_find path_match="*\AppData\Local\Google\Chrome\User Data\Default\Extensions\*"/>
+    </sample>
+
+    <sample name="Safari_History">
+      <ntfs_find path_match="*\Application Data\Apple Computer\Safari\*"/>
+      <ntfs_find path_match="*\AppData\Roaming\Apple Computer\Safari\*"/>
+    </sample>
+
+    <sample name="IE_History">
+      <ntfs_find path_match="*\History.ie5\*.dat"/>
+      <ntfs_find path_match="*\Cookies\*index.dat"/>
+      <ntfs_find path_match="*\Content.IE5\*index.dat"/>
+      <ntfs_find path_match="*\AppData\Local\Microsoft\Windows\WebCache\*.dat"/>
+      <ntfs_find path_match="*\AppData\Local\Microsoft\Windows\WebCache\*.log"/>
+      <ntfs_find path_match="*\AppData\Local\Microsoft\Windows\WebCache\*.jrs"/>
+      <ntfs_find path_match="*\AppData\Local\Microsoft\Windows\WebCache\*.chk"/>
+      <ntfs_find path_match="*\AppData\Local\Microsoft\Windows\*\History.ie5\*.dat"/>
+      <ntfs_find path_match="*\AppData\*\Microsoft\Windows\*Cookies\*"/>
+    </sample>
+
+  </samples>
+</getthis>
