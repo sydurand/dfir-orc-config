@@ -43,5 +43,17 @@
           <ntfs_find ea_match="?*" />
           <ntfs_exclude path="\$Extent\$UsnJrnl" ads="$J" />
         </sample>
+        <!-- Add-in : Office DLL Word wll, Excel xll -->
+        <sample name="Office_WLL_XLL">
+          <ntfs_find name_match="*.wll" />
+          <ntfs_find name_match="*.xll" />
+        </sample>
+        <!-- Add-in VBA : Excel xla xlam, Powerpoint ppa ppam -->
+        <sample name="Office_XLA_PPA">
+          <ntfs_find name_match="*.xla" />
+          <ntfs_find name_match="*.xlam" />
+          <ntfs_find name_match="*.ppa" />
+          <ntfs_find name_match="*.ppam" />
+        </sample>
     </samples>
 </getthis>
