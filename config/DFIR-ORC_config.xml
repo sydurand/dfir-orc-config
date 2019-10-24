@@ -71,6 +71,14 @@
             <output name="USNInfo.log" source="StdOutErr"/>
         </command>
 
+	    <command keyword="GetLegacyBootCode">
+			<execute name="DFIR-Orc.exe" run="self:#GetSectors" />
+			<output  name="BootCode.7z" source="File" argument="/LegacyBootCode /Out={FileName}" />
+			<output  name="BootCode.log" source="StdOutErr" />
+		</command>
+    </archive>
+
+    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Artefacts.7z" keyword="Hives" concurrency="2" repeat="Once" compression="fast" optional="yes">
         <command keyword="GetArtefacts">
             <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
             <argument>/config=res:#GetArtefacts_config.xml</argument>
@@ -89,8 +97,6 @@
             <output  name="GetSamples.7z"  source="File"  argument="/out={FileName}" />
             <output  name="GetSamples.log" source="StdOutErr" />
         </command>
-
-
     </archive>
 
     <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Hives.7z" keyword="Hives" concurrency="2" repeat="Once" compression="fast" optional="yes">
