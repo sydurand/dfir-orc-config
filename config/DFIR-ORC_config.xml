@@ -80,11 +80,12 @@
 
         <command keyword="GetSamples">
             <execute name="DFIR-Orc.exe" run="self:#GetSamples" />
-            <argument>/config=res:#getsamples</argument>
-            <output  name="GetSamples_sampleinfo.csv"  source="File"  argument="/sampleinfo={FileName}" />
-            <output  name="GetSamples_timeline.csv"  source="File"  argument="/timeline={FileName}" />
-            <output  name="GetSamples_autoruns.xml"  source="File"  argument="/autoruns={FileName}" />
-            <output  name="GetSamples_getthis.xml"  source="File"  argument="/getthis={FileName}" />
+            <argument>/config=res:#GetSamples_config.xml</argument>
+
+            <output  name="GetSamples_sampleinfo.csv"  source="File"  argument="/SampleInfo={FileName}" />
+            <output  name="GetSamples_timeline.csv"  source="File"  argument="/Timeline={FileName}" />
+            <output  name="GetSamples_autoruns.xml"  source="File"  argument="/Autoruns={FileName}" />
+            <output  name="GetSamples_getthis.xml"  source="File"  argument="/GetThisConfig={FileName}" />
             <output  name="GetSamples.7z"  source="File"  argument="/out={FileName}" />
             <output  name="GetSamples.log" source="StdOutErr" />
         </command>

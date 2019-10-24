@@ -16,6 +16,7 @@
     <file name="NTFSInfoHashPE_config.xml" path=".\%ORC_CONFIG_FOLDER%\NTFSInfoHashPE_config.xml"/>
     <file name="FatInfo_config.xml" path=".\%ORC_CONFIG_FOLDER%\FatInfo_config.xml"/>
     <file name="FatInfoHashPE_config.xml" path=".\%ORC_CONFIG_FOLDER%\FatInfoHashPE_config.xml"/>
+    <file name="GetSamples_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetSamples_config.xml"/>
     <file name="GetArtefacts_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetArtefacts_config.xml"/>
     <file name="GetYaraSamples_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetYaraSamples_config.xml"/>
     <file name="ruleset.yara" path=".\%ORC_CONFIG_FOLDER%\ruleset.yara"/>
