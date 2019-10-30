@@ -2,7 +2,7 @@
 <wolf childdebug="no" command_timeout="600">
     <log disposition="truncate">DFIR-ORC_{SystemType}_{FullComputerName}_{TimeStamp}.log</log>
 
-    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Main.7z" keyword="Main" concurrency="2" repeat="Once" compression="fast">
+    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Main.7z" keyword="Main" concurrency="2" repeat="Once" compression="normal">
         <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="2G" ElapsedTimeLimit="360"/>
 
         <command keyword="SystemInfo">
@@ -17,13 +17,6 @@
             <argument>Get-WMIObject win32_process | Export-Csv -NoTypeInformation -Encoding UTF8</argument>
             <output name="processes.csv" source="File" argument="-Path {FileName}"/>
             <output name="processes.log" source="StdOutErr"/>
-        </command>
-
-        <command keyword="GetEvents">
-            <execute name="DFIR-ORC.exe" run="self:#GetThis"/>
-            <argument>/config=res:#GetEvents_config.xml</argument>
-            <output name="Event.7z" source="File" argument="/out={FileName}"/>
-            <output name="Event.log" source="StdOutErr"/>
         </command>
 
         <command keyword="Autoruns">
@@ -78,7 +71,14 @@
 		</command>
     </archive>
 
-    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Artefacts.7z" keyword="Hives" concurrency="2" repeat="Once" compression="fast" optional="yes">
+    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Artefacts.7z" keyword="Artefacts" concurrency="2" repeat="Once" compression="fast" optional="no">
+        <command keyword="GetEvents">
+            <execute name="DFIR-ORC.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetEvents_config.xml</argument>
+            <output name="Event.7z" source="File" argument="/out={FileName}"/>
+            <output name="Event.log" source="StdOutErr"/>
+        </command>
+
         <command keyword="GetArtefacts">
             <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
             <argument>/config=res:#GetArtefacts_config.xml</argument>
@@ -99,7 +99,7 @@
         </command>
     </archive>
 
-    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Hives.7z" keyword="Hives" concurrency="2" repeat="Once" compression="fast" optional="yes">
+    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Hives.7z" keyword="Hives" concurrency="2" repeat="Once" compression="fast" optional="no">
         <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="1G" ElapsedTimeLimit="360"/>
 
         <command keyword="GetSystemHives">
