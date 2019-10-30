@@ -77,7 +77,6 @@
 			<output name="GetObjInfo.csv" source="File" argument="/out={FileName}" />
 			<output name="GetObjInfo.log" source="StdOutErr" />
 		</command>
-		
 
         <command keyword="GetEvents">
             <execute name="DFIR-ORC.exe" run="self:#GetThis"/>
@@ -89,6 +88,13 @@
 		<command keyword="GetScripts">
 			<execute name="DFIR-ORC.exe" run="self:#GetThis" />
 			<argument>/config=res:#GetScript_config.xml</argument>
+			<output  name="Scripts.7z" source="File" argument="/out={FileName}" />
+			<output  name="Scripts.log" source="StdOutErr" />
+		</command>
+
+		<command keyword="GetADS-SDS">
+			<execute name="DFIR-ORC.exe" run="self:#GetThis" />
+			<argument>/config=res:#GetADS-SDS_config.xml</argument>
 			<output  name="Scripts.7z" source="File" argument="/out={FileName}" />
 			<output  name="Scripts.log" source="StdOutErr" />
 		</command>
