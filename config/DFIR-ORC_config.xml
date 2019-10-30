@@ -86,6 +86,13 @@
             <output name="Event.log" source="StdOutErr"/>
         </command>
 
+		<command keyword="GetScripts">
+			<execute name="DFIR-ORC.exe" run="self:#GetThis" />
+			<argument>/config=res:#GetScript_config.xml</argument>
+			<output  name="Scripts.7z" source="File" argument="/out={FileName}" />
+			<output  name="Scripts.log" source="StdOutErr" />
+		</command>
+
         <command keyword="GetArtefacts">
             <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
             <argument>/config=res:#GetArtefacts_config.xml</argument>

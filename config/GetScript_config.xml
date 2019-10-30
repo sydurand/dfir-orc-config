@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<getthis reportall="">
+    <output password="protected" compression="ultra"/>
+    <location shadow="yes">*</location>
+    <samples  MaxTotalBytes="150MB" MaxPerSampleBytes="300KB" MaxSampleCount="5000">
+        <sample name="Job">
+            <ntfs_find name_match="*.job" />
+        </sample>
+        <sample name="At">
+            <ntfs_find name_match="*.at" />
+        </sample>
+        <sample name="Vbs-Vbe">
+            <ntfs_find name_match="*.vbs" />
+            <ntfs_find name_match="*.vbe" />
+        </sample>
+        <sample name="Batch">
+            <ntfs_find name_match="*.bat" />
+            <ntfs_find name_match="*.cmd" />
+        </sample>
+        <sample name="Ps1">
+            <ntfs_find name_match="*.ps1" />
+        </sample>
+    </samples>
+</getthis>
