@@ -72,6 +72,13 @@
     </archive>
 
     <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Artefacts.7z" keyword="Artefacts" concurrency="2" repeat="Once" compression="fast" optional="no">
+        <command keyword="GetObjInfo">
+			<execute name="DFIR-Orc.exe" run="self:#ObjInfo" />
+			<output name="GetObjInfo.csv" source="File" argument="/out={FileName}" />
+			<output name="GetObjInfo.log" source="StdOutErr" />
+		</command>
+		
+
         <command keyword="GetEvents">
             <execute name="DFIR-ORC.exe" run="self:#GetThis"/>
             <argument>/config=res:#GetEvents_config.xml</argument>
