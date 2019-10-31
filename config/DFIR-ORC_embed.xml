@@ -22,9 +22,12 @@
     <file name="GetADS-SDS_conf.xml" path=".\%ORC_CONFIG_FOLDER%\GetADS-SDS_config.xml"/>
     <file name="GetArtefacts_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetArtefacts_config.xml"/>
     <file name="GetBrowserHistory_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetBrowserHistory_config.xml"/>
+    
+    <!--
     <file name="GetYaraSamples_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetYaraSamples_config.xml"/>
     <file name="ruleset.yara" path=".\%ORC_CONFIG_FOLDER%\ruleset.yara"/>
-
+    -->
+    
     <pair name="AUTORUNS"  value="7z:#Tools|autorunsc.exe" />
 
     <archive name="Tools" format="7z" compression="Ultra">

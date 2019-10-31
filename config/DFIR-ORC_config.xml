@@ -173,6 +173,7 @@
         </command>
     </archive>
 
+<!--
     <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Yara.7z" keyword="Yara" concurrency="2" repeat="Once" compression="fast" archive_timeout="240" optional="yes">
         <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="3G" ElapsedTimeLimit="240"/>
 
@@ -183,4 +184,5 @@
             <output name="Yara.log" source="StdOutErr"/>
         </command>
     </archive>
+-->
 </wolf>
