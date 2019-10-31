@@ -21,6 +21,7 @@
     <file name="GetScript_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetScript_config.xml"/>
     <file name="GetADS-SDS_conf.xml" path=".\%ORC_CONFIG_FOLDER%\GetADS-SDS_config.xml"/>
     <file name="GetArtefacts_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetArtefacts_config.xml"/>
+    <file name="GetBrowserHistory_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetBrowserHistory_config.xml"/>
     <file name="GetYaraSamples_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetYaraSamples_config.xml"/>
     <file name="ruleset.yara" path=".\%ORC_CONFIG_FOLDER%\ruleset.yara"/>
 

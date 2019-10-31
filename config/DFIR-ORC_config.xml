@@ -151,6 +151,17 @@
         </command>
     </archive>
 
+    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Browsers.7z" keyword="Browsers" concurrency="2" repeat="Once" compression="fast" optional="yes">
+        <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="2G" ElapsedTimeLimit="360"/>
+
+        <command keyword="GetBrowserHistroy">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetBrowserHistory_config.xml</argument>
+            <output name="BrowserHistory.7z" source="File" argument="/out={FileName}"/>
+            <output name="BrowserHistory.log" source="StdOutErr"/>
+        </command>
+    </archive>
+
     <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_RAM.7z" keyword="Ram" concurrency="2" repeat="Once" compression="none" archive_timeout="120" optional="yes">
         <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="3G" ElapsedTimeLimit="60"/>
 
