@@ -28,5 +28,8 @@
     <archive name="Tools" format="7z" compression="Ultra">
         <file name="DFIR-Orc_x64.exe" path=".\tools\DFIR-Orc_x64.exe"/>
         <file name="autorunsc.exe" path=".\tools\autorunsc.exe"/>
+        
+        <!-- Using MAGNET RAM Capture - https://www.magnetforensics.com/resources/magnet-ram-capture/ -->
+        <file name="MRC.exe" path=".\tools\MRCv120.exe"/>
     </archive>
 </toolembed>
