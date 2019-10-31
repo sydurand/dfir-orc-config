@@ -9,6 +9,18 @@
             <ntfs_find path_match="\Windows\Prefetch\layout.ini"/>
         </sample>
 
+        <sample name="JumpLists" MaxPerSampleBytes="20MB">
+            <ntfs_find path_match="\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\*"/>
+        </sample>
+
+        <sample name="SRU" MaxPerSampleBytes="100MB">
+            <ntfs_find path_match="\Windows\System32\sru\*"/>
+        </sample>
+
+        <sample name="W10Timeline" MaxPerSampleBytes="100MB">
+            <ntfs_find path_match="\AppData\Local\ConnectedDevices Platform\L.*\ActivitiesCache.*"/>
+        </sample>
+
         <sample name="AmCache" MaxPerSampleBytes="120MB">
             <ntfs_find path_match="\Windows\AppCompat\Programs\*"/>
         </sample>
