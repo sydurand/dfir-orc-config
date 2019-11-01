@@ -13,6 +13,9 @@
             <ntfs_find name_match="Ag*.db"/>
         </sample>
         
+        <sample name="Lnk" MaxPerSampleBytes="20MB">
+            <ntfs_find name_match="*.lnk"/>
+        </sample>
         <sample name="Flash_Sol">
             <ntfs_find path_match="*\Application Data\*\#SharedObjects\*.sol" />
             <ntfs_find path_match="*\AppData\*\#SharedObjects\*.sol" />
