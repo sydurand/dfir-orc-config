@@ -33,10 +33,6 @@
             <ntfs_find path_match="*\AppData\Roaming\Apple Computer\Safari\*"/>
         </sample>
 
-        <sample name="Flash">
-            <ntfs_find path_match="*\Roaming\Macromedia\FlashPlayer\#SharedObjects\*"/>
-        </sample>
-
         <sample name="IE">
             <ntfs_find path_match="*\History.ie5\*.dat"/>
             <ntfs_find path_match="*\Cookies\*index.dat"/>
