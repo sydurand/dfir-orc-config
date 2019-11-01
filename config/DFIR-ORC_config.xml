@@ -102,8 +102,9 @@
 		<command keyword="GetADS-SDS">
 			<execute name="DFIR-ORC.exe" run="self:#GetThis" />
 			<argument>/config=res:#GetADS-SDS_config.xml</argument>
-			<output  name="Scripts.7z" source="File" argument="/out={FileName}" />
-			<output  name="Scripts.log" source="StdOutErr" />
+			<output  name="ADS-SDS.7z" source="File" argument="/out={FileName}" />
+			<output  name="ADS-SDS.log" source="StdOutErr" />
+		</command>
 		</command>
 
         <command keyword="GetArtefacts">
