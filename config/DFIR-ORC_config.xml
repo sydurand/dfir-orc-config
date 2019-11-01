@@ -106,7 +106,7 @@
 			<output  name="ADS-SDS.log" source="StdOutErr" />
 		</command>
 
-		<command keyword="GetExtAttrs">
+		<command keyword="GetExtAttrs" optional="yes">
 			<execute name="DFIR-ORC.exe" run="self:#GetThis" />
 			<argument>/config=res:#GetExtAttrs_config.xml</argument>
 			<output  name="ExtAttrs.7z" source="File" argument="/out={FileName}" />
