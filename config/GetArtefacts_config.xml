@@ -9,6 +9,10 @@
             <ntfs_find path_match="\Windows\Prefetch\layout.ini"/>
         </sample>
 
+        <sample name="SuperFetch" MaxPerSampleBytes="20MB">
+            <ntfs_find name_match="Ag*.db"/>
+        </sample>
+        
         <sample name="Flash_Sol">
             <ntfs_find path_match="*\Application Data\*\#SharedObjects\*.sol" />
             <ntfs_find path_match="*\AppData\*\#SharedObjects\*.sol" />
