@@ -16,10 +16,17 @@
         <sample name="Lnk" MaxPerSampleBytes="20MB">
             <ntfs_find name_match="*.lnk"/>
         </sample>
+        
+        <sample name="Java_Idx">
+            <ntfs_find path_match="*\Application Data\Sun\Java\Deployment\cache\*.idx" />
+            <ntfs_find path_match="*\AppData\*\Sun\Java\Deployment\cache\*.idx" />
+        </sample>
+        
         <sample name="Flash_Sol">
             <ntfs_find path_match="*\Application Data\*\#SharedObjects\*.sol" />
             <ntfs_find path_match="*\AppData\*\#SharedObjects\*.sol" />
         </sample>
+
         <sample name="JumpLists" MaxPerSampleBytes="20MB">
             <ntfs_find path_match="\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\*"/>
         </sample>
