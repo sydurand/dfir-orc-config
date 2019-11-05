@@ -27,6 +27,11 @@
             <ntfs_find path_match="*\AppData\*\#SharedObjects\*.sol" />
         </sample>
 
+        <sample name="scheduled_task">
+            <ntfs_find path_match="\Windows\System32\Tasks\*" />
+            <ntfs_find path_match="\Windows\SysWOW64\Tasks\*" />
+        </sample>
+
         <sample name="JumpLists" MaxPerSampleBytes="20MB">
             <ntfs_find path_match="\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\*"/>
         </sample>
