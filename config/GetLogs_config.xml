@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<getthis reportall="">
+    <location>%SystemDrive%</location>
+    <samples  MaxTotalBytes="150MB" MaxPerSampleBytes="300KB" MaxSampleCount="5000">
+        <sample name="Firwall_logs">
+            <ntfs_find path_match="\Windows\System32\LogFiles\Firewall\*" />
+        </sample>
+        <sample name="CCM_logs">
+            <ntfs_find path_match="\Windows\ccm\logs\*" />
+            <ntfs_find path_match="\Windows\syswow64\ccm\logs\*" />
+            <ntfs_find path_match="\Windows\\system32\ccm\logs\*" />
+        </sample>
+        <sample name="PowerShellHistory">
+            <ntfs_find path_match="\Users\*\Appdata\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt" />
+        </sample>
+        <sample name="WMITraceLogs">
+            <ntfs_find path_match="\Windows\System32\LogFiles\WMI\*" />
+        </sample>
+    </samples>
+</getthis>
