@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<getthis reportall="" flushregistry="yes">
+    <location>%SystemRoot%</location>
+    <samples MaxPerSampleBytes="500MB" MaxTotalBytes="2048MB">
+        <sample>
+            <ntfs_find name="DRIVERS" header="regf"/>
+        </sample>
+        <sample>
+            <ntfs_find name="BBI" header="regf"/>
+        </sample>
+        <sample>
+            <ntfs_find name="ELAM" header="regf"/>
+        </sample>
+    </samples>
+</getthis>

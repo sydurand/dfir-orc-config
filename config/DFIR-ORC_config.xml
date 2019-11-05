@@ -163,6 +163,13 @@
             <output name="SAM.7z" source="File" argument="/out={FileName}"/>
             <output name="SAM.log" source="StdOutErr"/>
         </command>
+
+        <command keyword="GetExtraHive" optional="yes">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetExtraHives_config.xml</argument>
+            <output name="Extra.7z" source="File" argument="/out={FileName}"/>
+            <output name="Extra.log" source="StdOutErr"/>
+        </command>
     </archive>
 
     <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Browsers.7z" keyword="Browsers" concurrency="2" repeat="Once" compression="fast" optional="yes">
