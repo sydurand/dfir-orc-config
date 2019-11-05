@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<fastfind version="V0.5">
-<!--
+<fastfind version="v0.0">
+
   <logging noconsole=""/>
--->
-  <output_filesystem compression="fast"/>
+
+  <output>.\%COMPUTERNAME%.xml</output>
 
   <filesystem>
-    <location shadows="no">%SystemDrive%\</location>
+    <location shadows="yes">%SystemDrive%\</location>
 
-    <ntfs_find path_match="*\windows\system32\*" name="cmd.exe" />
+    <yara source="res:#ruleset.yara" block="2M" timeout="120" overlap="8192" scan_method="filemapping" />
+    <ntfs_find size="694160" md5="1CECAFE147F1CC3E2B9804B8CDA593C9"/>
 
-<!--
-    <yara block="20M" overlap="2M" timeout="20" source="res:#ruleset.yara"/> 
-    <ntfs_find size_le="8M" yara_rule="*"/>
--->
+    <ntfs_find name="ntdll.dll" yara_rule="is_dll"/>
+
+    <ntfs_find name_match="gdi*.dll"/>
+    <ntfs_exclude path="\Windows\System32\ntdll.dll"/>
+    <ntfs_exclude path_match="\Windows\System32\gdi*.dll"/>
+    <ntfs_exclude sha1="c766364efd9c9b5aa3a7140a69f0cf5b147bc476"/>
+    <ntfs_exclude size="14966411"/>
+    <ntfs_exclude contains="bcryptprimitives.pdb"/>
   </filesystem>
 
   <registry>    
     <location shadows="no">%SystemDrive%\</location>
-
+    <hive name="NTUSER">
+      <ntfs_find name="NTUSER.DAT"/>
+      <registry_find key_path="\Software\Microsoft\Internet Explorer\Main" value="Check_Associations" data="no"/>
+    </hive>
     <hive name="SOFTWARE">
       <ntfs_find name="SOFTWARE" />
 
@@ -27,5 +35,9 @@
     </hive>
   </registry>
 
-
+  <object>
+    <object_find type="Mutant" name="foo"/>
+    <object_find type="File" name="foobar"/>
+  </object>
+  
 </fastfind>
