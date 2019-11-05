@@ -35,7 +35,7 @@
             <ntfs_find path_match="\Windows\System32\sru\*"/>
         </sample>
 
-        <sample name="W10Timeline" MaxPerSampleBytes="100MB">
+        <sample name="W10ActivitiesCache" MaxPerSampleBytes="100MB">
             <ntfs_find path_match="\AppData\Local\ConnectedDevices Platform\L.*\ActivitiesCache.*"/>
         </sample>
 
