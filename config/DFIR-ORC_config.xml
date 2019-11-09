@@ -129,7 +129,7 @@
 
         <command keyword="GetSamples">
             <execute name="DFIR-Orc.exe" run="self:#GetSamples" />
-            <argument>/config=res:#GetSamples_config.xml</argument>
+            <argument>/config=res:#GetSamples_config.xml /GetThisArgs="/Altitude=highest"</argument>
 
             <output  name="GetSamples_sampleinfo.csv"  source="File"  argument="/SampleInfo={FileName}" />
             <output  name="GetSamples_timeline.csv"  source="File"  argument="/Timeline={FileName}" />
