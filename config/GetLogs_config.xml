@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <getthis reportall="">
-    <location>%SystemDrive%</location>
+    <location altitude="highest">%SystemDrive%</location>
     <samples  MaxTotalBytes="150MB" MaxPerSampleBytes="300KB" MaxSampleCount="5000">
         <sample name="Firwall_logs">
             <ntfs_find path_match="\Windows\System32\LogFiles\Firewall\*" />

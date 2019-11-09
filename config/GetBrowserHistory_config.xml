@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <getthis reportall="">
-    <location>%SystemDrive%</location>
+    <location altitude="highest">%SystemDrive%</location>
     <samples MaxPerSampleBytes="150MB" MaxSampleCount="4096" MaxTotalBytes="512MB">
         <sample name="Firefox">
             <ntfs_find path_match="*\Application Data\Mozilla\Firefox\*.sqlite"/>

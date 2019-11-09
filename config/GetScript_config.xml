@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <getthis reportall="">
     <output password="protected" compression="ultra"/>
-    <location shadow="yes">*</location>
+    <location altitude="highest" shadow="yes">*</location>
     <samples  MaxTotalBytes="150MB" MaxPerSampleBytes="300KB" MaxSampleCount="5000">
         <sample name="Job">
             <ntfs_find name_match="*.job" />

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <getthis reportall="">
     <output compression="fast"/>
-    <location shadows="yes">*</location>
+    <location altitude="highest" shadows="yes">*</location>
     <samples MaxTotalBytes="1GB" MaxSampleCount="200000" MaxPerSampleBytes="650MB">
 
         <sample name="Prefetch" MaxPerSampleBytes="20MB">

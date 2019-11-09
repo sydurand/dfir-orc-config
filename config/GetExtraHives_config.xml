@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <getthis reportall="" flushregistry="yes">
-    <location>%SystemRoot%</location>
+    <location altitude="highest">%SystemRoot%</location>
     <samples MaxPerSampleBytes="500MB" MaxTotalBytes="2048MB">
         <sample>
             <ntfs_find name="DRIVERS" header="regf"/>
