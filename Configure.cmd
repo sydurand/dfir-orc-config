@@ -4,6 +4,8 @@ set ORC_CONFIG_FOLDER=.\config
 set ORC_TOOLS_FOLDER=.\tools
 set ORC_OUTPUT_FOLDER=.\output
 
+set ORC_VERSION=v1.7
+
 if not "%1"=="" (
 	echo Configuration folder defined: %1
 	set ORC_CONFIG_FOLDER=%1
@@ -17,7 +19,7 @@ goto CONFIGURE_ORC
 
 :DEFINE_ORC_OUTPUT
 
-set ORC_OUTPUT=DFIR-Orc.exe
+set ORC_OUTPUT=DFIR-Orc_%ORC_VERSION%.exe
 
 goto CONFIGURE_ORC
 
