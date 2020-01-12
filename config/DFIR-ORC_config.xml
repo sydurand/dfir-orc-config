@@ -59,7 +59,7 @@
 
         <command keyword="USNInfo" queue="flush">
             <execute name="DFIR-Orc.exe" run="self:#USNInfo"/>
-            <argument>*</argument>
+            <argument>/Altitude=<Highest *</argument>
             <output name="USNInfo.7z" source="File" argument="/out={FileName}"/>
             <output name="USNInfo.log" source="StdOutErr"/>
         </command>
