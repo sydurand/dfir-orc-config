@@ -55,5 +55,13 @@
           <ntfs_find name_match="*.ppa" />
           <ntfs_find name_match="*.ppam" />
         </sample>
+        <!-- Apps Art : Word, Excel, Powerpoint, OneNote, Maps -->
+        <sample name="App_Office">
+          <ntfs_find name_match="*.xlm" /> <!-- Recent open files for Word, Excel and Powerpoint -->
+          <ntfs_find name_match="*.fsd" /> <!-- Cache Files for Word, Excel and Powerpoint -->
+          <ntfs_find name_match="*.bin" /> <!-- BIN files for OneNote-->
+          <ntfs_find name_match="*.ttl" /> <!-- XML Files for Maps-->
+          <ntfs_find path_match="*\AppData\Local\Packages\Microsoft*\LocalState\*" />
+        </sample>
     </samples>
 </getthis>
