@@ -25,6 +25,7 @@
     <file name="GetBrowserHistory_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetBrowserHistory_config.xml"/>
     <file name="GetLogs_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetLogs_config.xml"/>
     <file name="GetExtraHives_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetExtraHives_config.xml"/>
+    <File name="GetMFT_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetMFT_config.xml" />
     
     <!--
     <file name="GetYaraSamples_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetYaraSamples_config.xml"/>

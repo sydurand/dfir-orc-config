@@ -183,6 +183,17 @@
         </command>
     </archive>
 
+    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_MFT.7z" keyword="MFT" concurrency="2" repeat="Once" compression="fast" optional="yes">
+        <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="2G" ElapsedTimeLimit="360"/>
+
+        <command keyword="GetMFT">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetMFT_config.xml</argument>
+            <output name="MFT.7z" source="File" argument="/out={FileName}"/>
+            <output name="MFT.log" source="StdOutErr"/>
+        </command>
+    </archive>
+
     <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_RAM.7z" keyword="Ram" concurrency="2" repeat="Once" compression="none" archive_timeout="120" optional="yes">
         <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="3G" ElapsedTimeLimit="60"/>
 

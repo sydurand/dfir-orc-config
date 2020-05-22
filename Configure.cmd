@@ -4,7 +4,7 @@ set ORC_CONFIG_FOLDER=.\config
 set ORC_TOOLS_FOLDER=.\tools
 set ORC_OUTPUT_FOLDER=.\output
 
-set ORC_VERSION=v1.7
+set ORC_VERSION=v1.9
 
 if not "%1"=="" (
 	echo Configuration folder defined: %1

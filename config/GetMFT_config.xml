@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<getthis reportall="">
+    <location altitude="highest">*</location>
+    <samples MaxPerSampleBytes="1024MB" MaxSampleCount="100" MaxTotalBytes="4096MB">
+        <sample name="MFT">
+            <ntfs_find path="\$MFT" />
+        </sample>
+    </samples>
+</getthis>
