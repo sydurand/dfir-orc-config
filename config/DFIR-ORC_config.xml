@@ -3,7 +3,7 @@
     <log disposition="truncate">DFIR-ORC_{SystemType}_{FullComputerName}_{TimeStamp}.log</log>
 
     <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Main.7z" keyword="Main" concurrency="2" repeat="Once" compression="normal">
-        <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="2G" ElapsedTimeLimit="360"/>
+        <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="2G" ElapsedTimeLimit="30"/>
 
         <command keyword="SystemInfo">
             <execute name="systeminfo.exe" run="%windir%\System32\systeminfo.exe"/>
@@ -72,6 +72,8 @@
     </archive>
 
     <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Artefacts.7z" keyword="Artefacts" concurrency="2" repeat="Once" compression="fast" optional="no">
+        <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="2G" ElapsedTimeLimit="60"/>
+
         <command keyword="GetObjInfo">
 			<execute name="DFIR-Orc.exe" run="self:#ObjInfo" />
 			<output name="GetObjInfo.csv" source="File" argument="/out={FileName}" />
@@ -138,10 +140,24 @@
             <output  name="GetSamples.7z"  source="File"  argument="/out={FileName}" />
             <output  name="GetSamples.log" source="StdOutErr" />
         </command>
+
+        <command keyword="GetBrowserHistroy" optional="yes">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetBrowserHistory_config.xml</argument>
+            <output name="BrowserHistory.7z" source="File" argument="/out={FileName}"/>
+            <output name="BrowserHistory.log" source="StdOutErr"/>
+        </command>
+
+        <command keyword="GetMFT" optional="yes">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetMFT_config.xml</argument>
+            <output name="MFT.7z" source="File" argument="/out={FileName}"/>
+            <output name="MFT.log" source="StdOutErr"/>
+        </command>
     </archive>
 
-    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Hives.7z" keyword="Hives" concurrency="2" repeat="Once" compression="fast" optional="no">
-        <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="1G" ElapsedTimeLimit="360"/>
+    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Hives.7z" keyword="Hives" concurrency="2" repeat="Once" compression="normal" optional="no">
+        <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="1G" ElapsedTimeLimit="30"/>
 
         <command keyword="GetSystemHives">
             <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
@@ -169,28 +185,6 @@
             <argument>/config=res:#GetExtraHives_config.xml</argument>
             <output name="Extra.7z" source="File" argument="/out={FileName}"/>
             <output name="Extra.log" source="StdOutErr"/>
-        </command>
-    </archive>
-
-    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Browsers.7z" keyword="Browsers" concurrency="2" repeat="Once" compression="fast" optional="yes">
-        <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="2G" ElapsedTimeLimit="360"/>
-
-        <command keyword="GetBrowserHistroy">
-            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
-            <argument>/config=res:#GetBrowserHistory_config.xml</argument>
-            <output name="BrowserHistory.7z" source="File" argument="/out={FileName}"/>
-            <output name="BrowserHistory.log" source="StdOutErr"/>
-        </command>
-    </archive>
-
-    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_MFT.7z" keyword="MFT" concurrency="2" repeat="Once" compression="fast" optional="yes">
-        <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="2G" ElapsedTimeLimit="360"/>
-
-        <command keyword="GetMFT">
-            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
-            <argument>/config=res:#GetMFT_config.xml</argument>
-            <output name="MFT.7z" source="File" argument="/out={FileName}"/>
-            <output name="MFT.log" source="StdOutErr"/>
         </command>
     </archive>
 
