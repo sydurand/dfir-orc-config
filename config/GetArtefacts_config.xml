@@ -1,8 +1,12 @@
 <?xml version="1.0"?>
 <getthis reportall="">
     <output compression="fast"/>
-    <location altitude="highest" shadows="yes">*</location>
+    <location altitude="highest" shadows="yes">%SystemDrive%</location>
     <samples MaxTotalBytes="1GB" MaxSampleCount="200000" MaxPerSampleBytes="650MB">
+
+        <sample name="INF" MaxPerSampleBytes="20MB">
+            <ntfs_find name_match="*.inf"/>
+        </sample>
 
         <sample name="Prefetch" MaxPerSampleBytes="20MB">
             <ntfs_find path_match="\Windows\Prefetch\*.pf"/>
