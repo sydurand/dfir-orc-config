@@ -141,13 +141,6 @@
             <output  name="GetSamples.log" source="StdOutErr" />
         </command>
 
-        <command keyword="GetBrowserHistroy" optional="yes">
-            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
-            <argument>/config=res:#GetBrowserHistory_config.xml</argument>
-            <output name="BrowserHistory.7z" source="File" argument="/out={FileName}"/>
-            <output name="BrowserHistory.log" source="StdOutErr"/>
-        </command>
-
         <command keyword="GetMFT" optional="yes">
             <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
             <argument>/config=res:#GetMFT_config.xml</argument>
@@ -185,6 +178,28 @@
             <argument>/config=res:#GetExtraHives_config.xml</argument>
             <output name="Extra.7z" source="File" argument="/out={FileName}"/>
             <output name="Extra.log" source="StdOutErr"/>
+        </command>
+    </archive>
+
+    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Browsers.7z" keyword="Browsers" concurrency="2" repeat="Once" compression="fast" optional="yes">
+        <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="2G" ElapsedTimeLimit="360"/>
+
+        <command keyword="GetBrowserHistroy">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetBrowserHistory_config.xml</argument>
+            <output name="BrowserHistory.7z" source="File" argument="/out={FileName}"/>
+            <output name="BrowserHistory.log" source="StdOutErr"/>
+        </command>
+    </archive>
+
+    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_MFT.7z" keyword="MFT" concurrency="2" repeat="Once" compression="fast" optional="yes">
+        <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="2G" ElapsedTimeLimit="360"/>
+
+        <command keyword="GetMFT">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetMFT_config.xml</argument>
+            <output name="MFT.7z" source="File" argument="/out={FileName}"/>
+            <output name="MFT.log" source="StdOutErr"/>
         </command>
     </archive>
 
