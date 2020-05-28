@@ -141,6 +141,7 @@
         <!-- Get Artefact -->
         <sample name="INF">
             <ntfs_find name_match="*.inf"/>
+            <ntfs_exclude path="\Windows"/>
         </sample>
 
         <sample name="Prefetch">
