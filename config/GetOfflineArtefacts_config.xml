@@ -118,6 +118,26 @@
             <ntfs_find path_match="*\AppData\*\Microsoft\Windows\*Cookies\*"/>
         </sample>
 
+        <!-- Get ADS -->
+        <sample name="ADS">
+            <ntfs_find  ads_match="?*" />
+            <ntfs_exclude path="\$UpCase" ads="$Info" />
+            <ntfs_exclude path="\$Extend\$UsnJrnl" ads="$J" />
+            <ntfs_exclude path="\$BadClus" ads="$Bad" />
+            <ntfs_exclude path="\$Bitmap" ads="$SRAT" />
+            <ntfs_exclude path="\$Extend\$RmMetadata\$Repair" ads="$Corrupt" />
+            <ntfs_exclude path="\$Extend\$RmMetadata\$Repair" ads="$Verify" />
+            <ntfs_exclude path="\$Secure" ads="$SDS" />
+            <ntfs_exclude path="\$Extend\$RmMetadata\$TxfLog\$Tops" ads="$T" />
+            <ntfs_exclude path="\$Tops" ads="$T" />
+        </sample>
+
+        <!-- Get $SDS -->
+        <sample name="SDS">
+            <ntfs_find name="$Secure" ads="$SDS" />
+            <ntfs_find attr_name="$SII" attr_type="$INDEX_ALLOCATION"/>
+        </sample>
+
         <!-- Get Artefact -->
         <sample name="INF">
             <ntfs_find name_match="*.inf"/>
