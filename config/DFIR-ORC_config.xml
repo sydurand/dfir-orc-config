@@ -192,7 +192,7 @@
         </command>
     </archive>
 
-    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_MFT.7z" keyword="MFT" concurrency="2" repeat="Once" compression="fast" optional="yes">
+    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Extra.7z" keyword="Extra" concurrency="2" repeat="Once" compression="fast" optional="yes">
         <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="2G" ElapsedTimeLimit="360"/>
 
         <command keyword="GetMFT">
