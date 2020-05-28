@@ -201,6 +201,27 @@
             <output name="MFT.7z" source="File" argument="/out={FileName}"/>
             <output name="MFT.log" source="StdOutErr"/>
         </command>
+
+        <command keyword="GetLogFile">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetLogFile_config.xml</argument>
+            <output name="LogFile.7z" source="File" argument="/out={FileName}"/>
+            <output name="LogFile.log" source="StdOutErr"/>
+        </command>
+
+        <command keyword="GetUSN" optional="yes">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetUSN_config.xml</argument>
+            <output name="USN.7z" source="File" argument="/out={FileName}"/>
+            <output name="USN.log" source="StdOutErr"/>
+        </command>
+
+        <command keyword="GetBoot">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetBoot_config.xml</argument>
+            <output name="Boot.7z" source="File" argument="/out={FileName}"/>
+            <output name="Boot.log" source="StdOutErr"/>
+        </command>
     </archive>
 
     <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_RAM.7z" keyword="Ram" concurrency="2" repeat="Once" compression="none" archive_timeout="120" optional="yes">

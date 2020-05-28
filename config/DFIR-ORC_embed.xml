@@ -26,6 +26,9 @@
     <file name="GetLogs_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetLogs_config.xml"/>
     <file name="GetExtraHives_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetExtraHives_config.xml"/>
     <File name="GetMFT_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetMFT_config.xml" />
+    <File name="GetLogFile_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetLogFile_config.xml" />
+    <File name="GetUSN_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetUSN_config.xml" />
+    <File name="GetBoot_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetBoot_config.xml" />
     
     <!--
     <file name="GetYaraSamples_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetYaraSamples_config.xml"/>
