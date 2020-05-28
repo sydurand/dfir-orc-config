@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wolf childdebug="no" command_timeout="600">
+<wolf childdebug="no" command_timeout="600" werdontshowui="on">
     <log disposition="truncate">DFIR-ORC_{SystemType}_{FullComputerName}_{TimeStamp}.log</log>
 
     <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Main.7z" keyword="Main" concurrency="2" repeat="Once" compression="normal">
