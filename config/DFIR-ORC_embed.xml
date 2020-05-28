@@ -29,6 +29,11 @@
     <File name="GetLogFile_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetLogFile_config.xml" />
     <File name="GetUSN_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetUSN_config.xml" />
     <File name="GetBoot_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetBoot_config.xml" />
+
+    <!-- Offline config -->
+    <File name="NTFSInfoOffline_config.xml" path=".\%ORC_CONFIG_FOLDER%\NTFSInfoOffline_config.xml" />
+    <File name="GetOfflineArtefacts_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetOfflineArtefacts_config.xml" />
+
     
     <!--
     <file name="GetYaraSamples_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetYaraSamples_config.xml"/>
