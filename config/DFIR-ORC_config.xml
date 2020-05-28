@@ -228,6 +228,34 @@
         </command>
     </archive>
 
+	<archive name="DFIR-ORC_Offline.7z" keyword="ORC_Offline" concurrency="3" repeat="Once" compression="None" optional="yes">
+		<restrictions JobMemoryLimit="4G" ProcessMemoryLimit="2G" ElapsedTimeLimit="360" />
+
+		<command keyword="OfflineNTFSInfo" queue="flush">
+			<execute name="Orc.exe" run="self:#" />
+			<argument>NTFSInfo</argument>
+			<argument>/config=res:#NTFSInfoOffline_config.xml</argument>
+			<output  name="NTFSInfo_i30Info.7z" source="File" argument="/i30info={FileName}"/>
+			<output  name="NTFSInfo_SecDesc.7z" source="File" argument="/SecDescr={FileName}"/>
+			<output  name="NTFSInfo_offline.7z"  source="File" argument="/fileinfo={FileName}" />
+			<output  name="NTFSInfo_offline.log" source="StdOut" />
+		</command>
+
+		<command keyword="GetOfflineLegacyBootCode">
+			<execute name="Orc.exe" run="self:#GetSectors" />
+			<output  name="OfflineBootCode.7z" source="File" argument="/LegacyBootCode /Out={FileName}" />
+			<output  name="OfflineBootCode.log" source="StdOut" />
+		</command>
+
+        <command keyword="GetOfflineArtefacts">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetOfflineArtefacts_config.xml</argument>
+            <output name="OfflineArtefacts.7z" source="File" argument="/out={FileName}"/>
+            <output name="OfflineArtefacts.log" source="StdOutErr"/>
+		</command>
+
+	</archive>
+
 <!--
     <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Yara.7z" keyword="Yara" concurrency="2" repeat="Once" compression="fast" archive_timeout="240" optional="yes">
         <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="3G" ElapsedTimeLimit="240"/>
