@@ -140,13 +140,6 @@
             <output  name="GetSamples.7z"  source="File"  argument="/out={FileName}" />
             <output  name="GetSamples.log" source="StdOutErr" />
         </command>
-
-        <command keyword="GetMFT" optional="yes">
-            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
-            <argument>/config=res:#GetMFT_config.xml</argument>
-            <output name="MFT.7z" source="File" argument="/out={FileName}"/>
-            <output name="MFT.log" source="StdOutErr"/>
-        </command>
     </archive>
 
     <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Hives.7z" keyword="Hives" concurrency="2" repeat="Once" compression="normal" optional="no">
