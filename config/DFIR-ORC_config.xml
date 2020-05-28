@@ -225,7 +225,7 @@
     </archive>
 
     <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_RAM.7z" keyword="Ram" concurrency="2" repeat="Once" compression="none" archive_timeout="120" optional="yes">
-        <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="3G" ElapsedTimeLimit="60"/>
+        <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="3G" ElapsedTimeLimit="360"/>
 
         <command keyword="RamCapture">
             <execute name="MRC.exe" run="7z:#Tools|MRC.exe"/>
