@@ -3,7 +3,7 @@
     <log disposition="truncate">DFIR-ORC_{SystemType}_{FullComputerName}_{TimeStamp}.log</log>
 
     <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Main.7z" keyword="Main" concurrency="2" repeat="Once" compression="normal">
-        <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="2G" ElapsedTimeLimit="30"/>
+        <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="2G" ElapsedTimeLimit="120"/>
 
         <command keyword="SystemInfo">
             <execute name="systeminfo.exe" run="%windir%\System32\systeminfo.exe"/>
@@ -24,6 +24,13 @@
             <argument>-a * -c -h -m -s -t -accepteula</argument>
             <output name="autoruns.csv" source="StdOut"/>
             <output name="autoruns.log" source="StdErr"/>
+        </command>
+
+        <command keyword="pe-sieve">
+            <execute name="hollows_hunter.exe" run32="7z:#Tools|hollows_hunter_32.exe" run64="7z:#Tools|hollows_hunter_64.exe"/>
+            <argument>/hooks /iat 1 /ofilter 1 /quiet</argument>
+            <output name="pe-sieve" source="Directory" argument="/dir {DirectoryName}" />
+            <output name="hollows_hunter.log" source="StdOutErr"/>
         </command>
 
         <command keyword="NTFSInfo" queue="flush">
