@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<getthis reportall="">
+    <location shadows="yes">%OfflineLocation%</location>
+    <samples MaxTotalBytes="100GB">
+
+        <!-- Get $ Files -->
+        <sample name="MFT-Log-Boot-USN">
+            <ntfs_find path="\$MFT" />
+            <ntfs_find path="\$LogFile" />
+            <ntfs_find path="\$Boot" />
+            <ntfs_find path="\$Extend\$UsnJrnl" ads="$J" />
+        </sample>
+
+        <!-- Get SystemHives -->
+        <sample name="SystemHives">
+            <ntfs_find name="SAM" header="regf"/>
+            <ntfs_find name="SECURITY" header="regf"/>
+            <ntfs_find name="SOFTWARE" header="regf"/>
+            <ntfs_find name="SYSTEM" header="regf"/>
+            <ntfs_find name="COMPONENTS" header="regf"/>
+            <ntfs_find name="DEFAULT" header="regf"/>
+        </sample>
+
+        <!-- Get UserHives -->
+        <sample name="UserHives">
+            <ntfs_find name="ntuser.dat" header="regf"/>
+            <ntfs_find name="UsrClass.dat" header="regf"/>
+        </sample>
+
+        <!-- Get Eventlog -->
+        <sample name="evtx">
+            <ntfs_find name_match="*.evtx" header="ElfFile"/>
+        </sample>
+        <sample name="evt">
+            <ntfs_find name_match="*.evt" header_hex="300000004c664c65"/>
+        </sample>
+
+        <!-- Get ExeInTemp -->
+        <sample name="ExeInTemp">
+            <ntfs_exclude path_match="*\WorkingTemp\*"/>
+            <ntfs_find path_match="\Documents And Settings\*\Local Settings\Temp\*" header="MZ"/>
+            <ntfs_find path_match="\Users\*\AppData\Local\Temp\*" header="MZ"/>
+            <ntfs_find path_match="\Windows\Temp\*" header="MZ"/>
+            <ntfs_find path_match="\RECYCLER\*" header="MZ"/>
+        </sample>
+
+        <!-- Get Scripts -->
+        <sample name="Scripts">
+            <ntfs_find name_match="*.job" />
+            <ntfs_find name_match="*.at" />
+            <ntfs_find name_match="*.vbs" />
+            <ntfs_find name_match="*.vbe" />
+            <ntfs_find name_match="*.bat" />
+            <ntfs_find name_match="*.cmd" />
+            <ntfs_find name_match="*.ps1" />
+        </sample>
+
+        <!-- Get Logs -->
+        <sample name="Firwall_logs">
+            <ntfs_find path_match="\Windows\System32\LogFiles\Firewall\*" />
+        </sample>
+
+        <sample name="CCM_logs">
+            <ntfs_find path_match="\Windows\ccm\logs\*" />
+            <ntfs_find path_match="\Windows\syswow64\ccm\logs\*" />
+            <ntfs_find path_match="\Windows\\system32\ccm\logs\*" />
+        </sample>
+        
+        <sample name="PowerShellHistory">
+            <ntfs_find path_match="\Users\*\Appdata\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt" />
+        </sample>
+        
+        <sample name="WMITraceLogs">
+            <ntfs_find path_match="\Windows\System32\LogFiles\WMI\*" />
+        </sample>
+
+        <!-- Get Browsers history -->
+        <sample name="Firefox">
+            <ntfs_find path_match="*\Application Data\Mozilla\Firefox\*.sqlite"/>
+            <ntfs_find path_match="*\Application Data\Mozilla\Firefox\*.json"/>
+            <ntfs_find path_match="*\Application Data\Mozilla\Firefox\*.dat"/>
+            <ntfs_find path_match="*\Application Data\Mozilla\Firefox\extensions\*"/>
+            <ntfs_find path_match="*\Application Data\Mozilla\Extensions\*"/>
+            <ntfs_find path_match="*\AppData\*\Mozilla\Firefox\*.default*\*.sqlite"/>
+            <ntfs_find path_match="*\AppData\*\Mozilla\Firefox\*.default*\*.json"/>
+            <ntfs_find path_match="*\AppData\*\Mozilla\Firefox\*.default*\*.dat"/>
+            <ntfs_find path_match="*\AppData\*\Mozilla\Firefox\*.default*\extensions\*"/>
+            <ntfs_find path_match="*\AppData\*\Mozilla\Extensions\*"/>
+        </sample>
+
+        <sample name="Chrome">
+            <ntfs_find path_match="*\Local Settings\Application Data\Google\Chrome\User Data\Default\*History*"/>
+            <ntfs_find path_match="*\Local Settings\Application Data\Google\Chrome\User Data\Default\*Cookies*"/>
+            <ntfs_find path_match="*\Local Settings\Application Data\Google\Chrome\User Data\Default\*Shortcuts*"/>
+            <ntfs_find path_match="*\Local Settings\Application Data\Google\Chrome\User Data\Default\*Favicons*"/>
+            <ntfs_find path_match="*\Local Settings\Application Data\Google\Chrome\User Data\Default\Extensions\*"/>
+            <ntfs_find path_match="*\AppData\Local\Google\Chrome\User Data\Default\*History*"/>
+            <ntfs_find path_match="*\AppData\Local\Google\Chrome\User Data\Default\*Cookies*"/>
+            <ntfs_find path_match="*\AppData\Local\Google\Chrome\User Data\Default\*Shortcuts*"/>
+            <ntfs_find path_match="*\AppData\Local\Google\Chrome\User Data\Default\*Favicons*"/>
+            <ntfs_find path_match="*\AppData\Local\Google\Chrome\User Data\Default\Extensions\*"/>
+        </sample>
+
+        <sample name="Safari">
+            <ntfs_find path_match="*\Application Data\Apple Computer\Safari\*"/>
+            <ntfs_find path_match="*\AppData\Roaming\Apple Computer\Safari\*"/>
+        </sample>
+
+        <sample name="IE">
+            <ntfs_find path_match="*\History.ie5\*.dat"/>
+            <ntfs_find path_match="*\Cookies\*index.dat"/>
+            <ntfs_find path_match="*\Content.IE5\*index.dat"/>
+            <ntfs_find path_match="*\AppData\Local\Microsoft\Windows\WebCache\*.dat"/>
+            <ntfs_find path_match="*\AppData\Local\Microsoft\Windows\WebCache\*.log"/>
+            <ntfs_find path_match="*\AppData\Local\Microsoft\Windows\WebCache\*.jrs"/>
+            <ntfs_find path_match="*\AppData\Local\Microsoft\Windows\WebCache\*.chk"/>
+            <ntfs_find path_match="*\AppData\Local\Microsoft\Windows\*\History.ie5\*.dat"/>
+            <ntfs_find path_match="*\AppData\*\Microsoft\Windows\*Cookies\*"/>
+        </sample>
+
+        <!-- Get ADS -->
+        <sample name="ADS">
+            <ntfs_find  ads_match="?*" />
+            <ntfs_exclude path="\$UpCase" ads="$Info" />
+            <ntfs_exclude path="\$Extend\$UsnJrnl" ads="$J" />
+            <ntfs_exclude path="\$BadClus" ads="$Bad" />
+            <ntfs_exclude path="\$Bitmap" ads="$SRAT" />
+            <ntfs_exclude path="\$Extend\$RmMetadata\$Repair" ads="$Corrupt" />
+            <ntfs_exclude path="\$Extend\$RmMetadata\$Repair" ads="$Verify" />
+            <ntfs_exclude path="\$Secure" ads="$SDS" />
+            <ntfs_exclude path="\$Extend\$RmMetadata\$TxfLog\$Tops" ads="$T" />
+            <ntfs_exclude path="\$Tops" ads="$T" />
+        </sample>
+
+        <!-- Get $SDS -->
+        <sample name="SDS">
+            <ntfs_find name="$Secure" ads="$SDS" />
+            <ntfs_find attr_name="$SII" attr_type="$INDEX_ALLOCATION"/>
+        </sample>
+
+        <!-- Get Artefact -->
+        <sample name="INF">
+            <ntfs_find name_match="*.inf"/>
+            <ntfs_exclude path_match="\Windows\*"/>
+            <ntfs_exclude path_match="\Program Files\*"/>
+            <ntfs_exclude path_match="\Program Files (x86)\*"/>
+        </sample>
+
+        <sample name="Prefetch">
+            <ntfs_find path_match="\Windows\Prefetch\*.pf"/>
+            <ntfs_find path_match="\Windows\Prefetch\layout.ini"/>
+        </sample>
+
+        <sample name="SuperFetch">
+            <ntfs_find name_match="Ag*.db"/>
+        </sample>
+        
+        <sample name="Lnk">
+            <ntfs_find name_match="*.lnk"/>
+        </sample>
+        
+        <sample name="Java_Idx">
+            <ntfs_find path_match="*\Application Data\Sun\Java\Deployment\cache\*.idx" />
+            <ntfs_find path_match="*\AppData\*\Sun\Java\Deployment\cache\*.idx" />
+        </sample>
+        
+        <sample name="Flash_Sol">
+            <ntfs_find path_match="*\Application Data\*\#SharedObjects\*.sol" />
+            <ntfs_find path_match="*\AppData\*\#SharedObjects\*.sol" />
+        </sample>
+
+        <sample name="scheduled_task">
+            <ntfs_find path_match="\Windows\System32\Tasks\*" />
+            <ntfs_find path_match="\Windows\SysWOW64\Tasks\*" />
+        </sample>
+
+        <sample name="WMI_Forensics">
+            <ntfs_find path_match="\Windows\System32\wbem\Repository\OBJECTS.DATA" />
+            <ntfs_find path_match="\Windows\System32\wbem\Repository\FS\OBJECTS.DATA" />
+        </sample>
+
+        <sample name="JumpLists">
+            <ntfs_find path_match="\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\*"/>
+        </sample>
+
+        <sample name="SRU">
+            <ntfs_find path_match="\Windows\System32\sru\*"/>
+        </sample>
+
+        <sample name="W10ActivitiesCache">
+            <ntfs_find path_match="\AppData\Local\ConnectedDevices Platform\L.*\ActivitiesCache.*"/>
+        </sample>
+
+        <sample name="AmCache">
+            <ntfs_find path_match="\Windows\AppCompat\Programs\*"/>
+        </sample>
+
+        <sample name="RDP_BMC">
+            <ntfs_find path_match="\Documents and Settings\*\Local Settings\Application Data\Microsoft\Terminal Server Client\Cache\*.bmc"/>
+            <ntfs_find path_match="\Documents and Settings\*\Local Settings\Application Data\Microsoft\Terminal Server Client\Cache\*.bin"/>
+            <ntfs_find path_match="\Users\*\AppData\Local\Microsoft\Terminal Server Client\Cache\*.bmc"/>
+            <ntfs_find path_match="\Users\*\AppData\Local\Microsoft\Terminal Server Client\Cache\*.bin"/>
+        </sample>
+
+        <sample name="BITS_QMGR">
+            <ntfs_find path_match="\Documents and Settings\All Users\Application Data\Microsoft\Network\Downloader\qmgr*.dat"/>
+            <ntfs_find path_match="\ProgramData\Microsoft\Network\Downloader\qmgr*.dat"/>
+        </sample>
+
+    </samples>
+</getthis>
