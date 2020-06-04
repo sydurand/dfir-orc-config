@@ -25,5 +25,8 @@
     <sample name="py">
         <ntfs_find name_match="*.py" />
     </sample>
+    <sample name="wmi">
+        <ntfs_find name-math="*.mof" />
+    </sample>
   </samples>
 </getthis>
