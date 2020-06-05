@@ -43,5 +43,33 @@
           <ntfs_find ea_match="?*" />
           <ntfs_exclude path="\$Extent\$UsnJrnl" ads="$J" />
         </sample>
+        <!-- Add-in : Office DLL Word wll, Excel xll -->
+        <sample name="Office_WLL_XLL">
+          <ntfs_find name_match="*.wll" />
+          <ntfs_find name_match="*.xll" />
+        </sample>
+        <!-- Add-in VBA : Excel xla xlam, Powerpoint ppa ppam -->
+        <sample name="Office_XLA_PPA">
+          <ntfs_find name_match="*.xla" />
+          <ntfs_find name_match="*.xlam" />
+          <ntfs_find name_match="*.ppa" />
+          <ntfs_find name_match="*.ppam" />
+        </sample>
+        <!-- Apps Art : Word, Excel, Powerpoint, OneNote, Maps -->
+        <sample name="App_Office">
+          <ntfs_find name_match="*.xlm" /> <!-- Recent open files for Word, Excel and Powerpoint -->
+          <ntfs_find name_match="*.fsd" /> <!-- Cache Files for Word, Excel and Powerpoint -->
+          <ntfs_find name_match="*.bin" /> <!-- BIN files for OneNote-->
+          <ntfs_find name_match="*.ttl" /> <!-- XML Files for Maps-->
+          <ntfs_find path_match="*\AppData\Local\Packages\Microsoft*\LocalState\*" />
+        </sample>
+        <!-- CIM repository -->
+        <sample name="CIM_WMI">
+          <ntfs_find name_match="*.data" /> <!-- Objects.data mapping -->
+          <ntfs_find name_match="*.map" /> <!-- Mapping(1,2,3).map mapping -->
+          <ntfs_find name_match="*.btr" /> <!-- Index.btr mapping -->
+          <ntfs_find name_match="*.ver" /> <!-- Only WinXP -->
+          <ntfs_find path_match="*\WBEM\Repository\*" />
+        </sample>
     </samples>
 </getthis>
