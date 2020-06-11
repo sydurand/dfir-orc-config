@@ -28,6 +28,7 @@
     <file name="GetCrash_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetCrash_config.xml" />
     <file name="GetCatFiles_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetCatFiles_config.xml" />
     <file name="GetDocs_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetDocs_config.xml" />
+    <file name="GetSamples_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetSamples_config.xml" />
     <file name="ruleset.yara" path=".\%ORC_CONFIG_FOLDER%\ruleset.yara"/>
 
     <archive name="Tools" format="7z" compression="Ultra">

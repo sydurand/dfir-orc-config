@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<getsamples>
+  <getthis name="getthis.exe" run="self:#" args="getthis" />
+  <output password="V!ruS"/>
+  <samples MaxPerSampleBytes="15MB" MaxSampleCount="1500" MaxTotalBytes="124MB" />
+</getsamples>
