@@ -5,6 +5,8 @@
     <sample name="minidump">
       <ntfs_find name_match="*minidump*.dmp"/>
       <ntfs_find name_match="*.mdmp"/>
+      <ntfs_find name_match="*memory*.dmp"/>
+      <ntfs_find name_match="*dump.dump"/>
     </sample>
     <sample name="WER">
       <ntfs_find name_match="*.wer"/>
