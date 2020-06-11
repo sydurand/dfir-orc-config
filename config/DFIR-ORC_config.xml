@@ -104,7 +104,7 @@
 
         <command keyword="USNInfo" queue="flush">
             <execute name="DFIR-Orc.exe" run="self:#USNInfo"/>
-            <argument>*</argument>
+            <argument>/altitude=highest *</argument>
             <output name="USNInfo.7z" source="File" argument="/out={FileName}"/>
             <output name="USNInfo.log" source="StdOutErr"/>
         </command>
@@ -115,6 +115,19 @@
             <output name="Artefacts.7z" source="File" argument="/out={FileName}"/>
             <output name="Artefacts.log" source="StdOutErr"/>
         </command>
+
+        <command keyword="GetLegacyBootCode">
+            <execute name="DFIR-Orc.exe" run="self:#GetSectors" />
+            <output  name="BootCode.7z" source="File" argument="/LegacyBootCode /Out={FileName}" />
+            <output  name="BootCode.log" source="StdOutErr" />
+        </command>
+
+        <command keyword="GetMFT">
+    			<execute name="DFIR-Orc.exe" run="self:#GetThis" />
+    			<argument>/altitude=highest * /sample=$Mft /nolimits</argument>
+    			<output name="MFT.7z" source="File" argument="/out={FileName}" />
+    			<output name="MFT.log" source="StdOut" />
+    		</command>
 
         <command keyword="GetADS-SDS">
     			<execute name="DFIR-ORC.exe" run="self:#GetThis" />
