@@ -195,6 +195,13 @@
           <output  name="GetSamples.log" source="StdOutErr" />
         </command>
 
+        <command keyword="GetUSN" optional="yes">
+          <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+          <argument>/config=res:#GetUSN_config.xml</argument>
+          <output name="USN.7z" source="File" argument="/out={FileName}"/>
+          <output name="USN.log" source="StdOutErr"/>
+        </command>
+
     </archive>
 
 	<!--ORCYARA config optional does not execute by default optional="yes" parameter set-->
