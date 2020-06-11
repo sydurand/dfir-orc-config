@@ -35,6 +35,10 @@
         <sample name="AmCache" MaxPerSampleBytes="120MB">
             <ntfs_find path_match="\Windows\AppCompat\Programs\*"/>
         </sample>
+        <sample name="extAttrs">
+          <ntfs_find ea_match="?*" />
+          <ntfs_exclude path="\$Extent\$UsnJrnl" ads="$J" />
+        </sample>
         <sample name="RDP_BMC" MaxPerSampleBytes="200MB" MaxTotalBytes="600MB">
             <ntfs_find path_match="\Documents and Settings\*\Local Settings\Application Data\Microsoft\Terminal Server Client\Cache\*.bmc"/>
             <ntfs_find path_match="\Documents and Settings\*\Local Settings\Application Data\Microsoft\Terminal Server Client\Cache\*.bin"/>
