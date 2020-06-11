@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<getthis reportall="">
-    <location altitude="highest">%SystemDrive%</location>
-    <samples MaxSampleCount="1" >
-        <sample name="USN">
-            <ntfs_find path="\$Extend\$UsnJrnl" ads="$J" />
-        </sample>
-    </samples>
-</getthis>

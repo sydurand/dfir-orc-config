@@ -24,7 +24,6 @@
     <file name="GetScripts_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetScripts_config.xml"/>
     <file name="GetTempExe_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetTempExe_config.xml"/>
     <file name="GetLogs_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetLogs_config.xml" />
-    <file name="GetUSN_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetUSN_config.xml" />
     <file name="GetBoot_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetBoot_config.xml" />
     <file name="GetCrash_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetCrash_config.xml" />
     <file name="GetCatFiles_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetCatFiles_config.xml" />
