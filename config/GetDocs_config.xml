@@ -2,8 +2,8 @@
 <getthis reportall="">
   <!-- Be careful with this submodules, you must have all the agreement
   and you must list the files that you extract -->
-  <location altitude="highest" shadow="yes">*</location>
   <output password="V!ruS" compression="ultra"/>
+  <location altitude="highest" shadow="yes">*</location>
   <samples MaxPerSampleBytes="10MB" MaxSampleCount="2048" MaxTotalBytes="450MB">
     <sample name="pdf">
       <ntfs_find path_match="*.pdf" />
