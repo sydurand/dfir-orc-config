@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <getthis reportall="">
   <location>*</location>
-  <output password="V!ruS"/>
+  <output password="V!ruS" compression="ultra"/>
+  <location altitude="highest" shadow="yes">*</location>
   <samples MaxPerSampleBytes="300KB" MaxSampleCount="5000" MaxTotalBytes="150MB">
     <sample name="job">
         <ntfs_find name_match="*.job" />
@@ -13,10 +14,8 @@
         <ntfs_find name_match="*.vbs" />
         <ntfs_find name_match="*.vbe" />
     </sample>
-    <sample name="bat">
+    <sample name="bat_cmd">
         <ntfs_find name_match="*.bat" />
-    </sample>
-    <sample name="cmd">
         <ntfs_find name_match="*.cmd" />
     </sample>
     <sample name="ps1">
