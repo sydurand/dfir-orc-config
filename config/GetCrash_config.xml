@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<getthis reportall="">
+  <location altitude="highest">%SystemDrive%\</location>
+  <samples MaxPerSampleBytes="5MB" MaxSampleCount="1024" MaxTotalBytes="50MB">
+    <sample name="minidump">
+      <ntfs_find name_match="*minidump*.dmp"/>
+      <ntfs_find name_match="*.mdmp"/>
+    </sample>
+    <sample name="WER">
+      <ntfs_find name_match="*.wer"/>
+    </sample>
+    <sample name="Drwtsn">
+      <ntfs_find name="Drwtsn32.log"/>
+    </sample>
+  </samples>
+</getthis>

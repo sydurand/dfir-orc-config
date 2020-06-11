@@ -26,6 +26,8 @@
     <file name="GetLogs_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetLogs_config.xml" />
     <file name="GetUSN_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetUSN_config.xml" />
     <file name="GetBoot_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetBoot_config.xml" />
+    <file name="GetCrash_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetCrash_config.xml" />
+    <file name="GetCatFiles_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetCatFiles_config.xml" />
     <file name="ruleset.yara" path=".\%ORC_CONFIG_FOLDER%\ruleset.yara"/>
 
     <archive name="Tools" format="7z" compression="Ultra">

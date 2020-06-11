@@ -209,6 +209,20 @@
             <output name="Boot.log" source="StdOutErr"/>
         </command>
 
+        <command keyword="GetCatFiles" optional="yes">
+          <execute name="Orc.exe" run="self:#GetThis" />
+          <argument>/config=res:#GetCatFiles_config.xml</argument>
+          <output  name="CatFiles.7z" source="File" argument="/out={FileName}" />
+          <output  name="CatFiles.log" source="StdOut" />
+        </command>
+
+        <command keyword="GetCrash" optional="yes">
+          <execute name="Orc.exe" run="self:#GetThis" />
+          <argument>/config=res:#GetCrash_config.xml</argument>
+          <output  name="Crash.7z" source="File" argument="/out={FileName}" />
+          <output  name="Crash.log" source="StdOut" />
+        </command>
+
     </archive>
 
 	<!--ORCYARA config optional does not execute by default optional="yes" parameter set-->
