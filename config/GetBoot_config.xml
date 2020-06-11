@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<getthis reportall="">
+    <location altitude="highest">%SystemDrive%</location>
+    <samples MaxTotalBytes="2048MB">
+        <sample name="Boot">
+            <ntfs_find path="\$Boot" />
+        </sample>
+    </samples>
+</getthis>

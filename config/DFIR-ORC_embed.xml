@@ -25,7 +25,7 @@
     <file name="GetTempExe_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetTempExe_config.xml"/>
     <file name="GetLogs_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetLogs_config.xml" />
     <file name="GetUSN_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetUSN_config.xml" />
-
+    <file name="GetBoot_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetBoot_config.xml" />
     <file name="ruleset.yara" path=".\%ORC_CONFIG_FOLDER%\ruleset.yara"/>
 
     <archive name="Tools" format="7z" compression="Ultra">

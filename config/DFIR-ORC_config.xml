@@ -202,6 +202,13 @@
           <output name="USN.log" source="StdOutErr"/>
         </command>
 
+        <command keyword="GetBoot">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetBoot_config.xml</argument>
+            <output name="Boot.7z" source="File" argument="/out={FileName}"/>
+            <output name="Boot.log" source="StdOutErr"/>
+        </command>
+
     </archive>
 
 	<!--ORCYARA config optional does not execute by default optional="yes" parameter set-->
