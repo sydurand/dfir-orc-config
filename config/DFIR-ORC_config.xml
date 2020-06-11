@@ -69,6 +69,13 @@
             <output name="autoruns.log" source="StdErr"/>
         </command>
 
+        <command keyword="Tcpvcon">
+            <execute name="tcpvcon.exe" run="7z:#Tools|tcpvcon.exe"/>
+            <argument>-a -c -accepteula</argument>
+            <output name="tcpvcon.csv" source="StdOut"/>
+            <output name="tcpvcon.log" source="StdErr"/>
+        </command>
+
         <command keyword="NTFSInfo" queue="flush">
             <execute name="DFIR-ORC.exe" run="self:#NTFSInfo"/>
             <argument>/config=res:#NTFSInfo_config.xml</argument>
