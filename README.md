@@ -27,6 +27,7 @@ The "tools" directory must therefore contain the following files:
 * DFIR-Orc_x86.exe
 * autorunsc.exe
 * winpmem.exe
+* tcpvcon.exe
 
 Include here.
 
