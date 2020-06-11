@@ -20,12 +20,12 @@
             <ntfs_find name_match="*.lnk"/>
         </sample>
         <sample name="Java_Idx">
-            <ntfs_find path_match="*\Application Data\Sun\Java\Deployment\cache\*.idx" />
-            <ntfs_find path_match="*\AppData\*\Sun\Java\Deployment\cache\*.idx" />
+            <ntfs_find path_match="\Application Data\Sun\Java\Deployment\cache\*.idx" />
+            <ntfs_find path_match="\AppData\*\Sun\Java\Deployment\cache\*.idx" />
         </sample>
         <sample name="Flash_Sol">
-            <ntfs_find path_match="*\Application Data\*\#SharedObjects\*.sol" />
-            <ntfs_find path_match="*\AppData\*\#SharedObjects\*.sol" />
+            <ntfs_find path_match="\Application Data\*\#SharedObjects\*.sol" />
+            <ntfs_find path_match="\AppData\*\#SharedObjects\*.sol" />
         </sample>
         <sample name="recentFile">
             <ntfs_find name="RecentFileCache.bcf" />
@@ -79,15 +79,11 @@
         </sample>
         <!-- Win10 timeline activities database  ActivitiesCache.db files -->
         <sample name="W10ActivitiesCache" MaxPerSampleBytes="100MB">
-            <ntfs_find path_match="\AppData\Local\ConnectedDevicesPlatform\ActivitiesCache.*"/>
+            <ntfs_find path_match="*\AppData\Local\ConnectedDevicesPlatform\ActivitiesCache.*"/>
         </sample>
         <!-- System Resource Usage Monitor SRUDB.dat -->
         <sample name="Sru" MaxPerSampleBytes="100MB">
             <ntfs_find path_match="\Windows\System32\sru\*"/>
-        </sample>
-        <!-- JumpLists for recent items accessed by each application *AutomaticDestinations-ms files -->
-        <sample name="Jumplists" MaxPerSampleBytes="20MB">
-            <ntfs_find path_match="\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\*"/>
         </sample>
         <!-- Win Tasks -->
         <sample name="Scheduled_Task">
