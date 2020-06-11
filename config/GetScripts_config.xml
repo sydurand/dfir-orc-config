@@ -27,5 +27,9 @@
     <sample name="wmi">
         <ntfs_find name-math="*.mof" />
     </sample>
+    <sample name="jar">
+      <ntfs_find path_match="\Users\*.jar" />
+      <ntfs_find path_match="\Document and settings\*.jar" />
+    </sample>
   </samples>
 </getthis>
