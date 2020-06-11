@@ -178,6 +178,23 @@
             <output name="TempExe.log" source="StdOutErr"/>
         </command>
 
+        <command keyword="GetObjInfo">
+          <execute name="DFIR-Orc.exe" run="self:#ObjInfo" />
+          <output name="GetObjInfo.csv" source="File" argument="/out={FileName}" />
+          <output name="GetObjInfo.log" source="StdOutErr" />
+        </command>
+
+        <command keyword="GetSamples">
+          <execute name="DFIR-Orc.exe" run="self:#GetSamples" />
+          <argument>/config=res:#GetSamples_config.xml /GetThisArgs="/Altitude=highest"</argument>
+          <output  name="GetSamples_sampleinfo.csv"  source="File"  argument="/SampleInfo={FileName}" />
+          <output  name="GetSamples_timeline.csv"  source="File"  argument="/Timeline={FileName}" />
+          <output  name="GetSamples_autoruns.xml"  source="File"  argument="/Autoruns={FileName}" />
+          <output  name="GetSamples_getthis.xml"  source="File"  argument="/GetThisConfig={FileName}" />
+          <output  name="GetSamples.7z"  source="File"  argument="/out={FileName}" />
+          <output  name="GetSamples.log" source="StdOutErr" />
+        </command>
+
     </archive>
 
 	<!--ORCYARA config optional does not execute by default optional="yes" parameter set-->
