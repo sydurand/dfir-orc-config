@@ -1,8 +1,14 @@
 <?xml version="1.0"?>
 <getthis reportall="">
     <output compression="fast"/>
-    <location shadows="yes">*</location>
+    <location altitude="highest" shadows="yes">*</location>
     <samples MaxTotalBytes="1GB" MaxSampleCount="200000" MaxPerSampleBytes="650MB">
+        <sample name="Inf" MaxPerSampleBytes="1MB">
+          <ntfs_find name_match="*.inf"/>
+          <ntfs_exclude path_match="\Windows\*"/>
+          <ntfs_exclude path_match="\Program Files\*"/>
+          <ntfs_exclude path_match="\Program Files (x86)\*"/>
+        </sample>
         <sample name="Prefetch" MaxPerSampleBytes="20MB">
             <ntfs_find path_match="\Windows\Prefetch\*.pf"/>
             <ntfs_find path_match="\Windows\Prefetch\layout.ini"/>
@@ -13,11 +19,11 @@
         <sample name="Lnk" MaxPerSampleBytes="20MB">
             <ntfs_find name_match="*.lnk"/>
         </sample>
-        <sample name="Idx">
+        <sample name="Java_Idx">
             <ntfs_find path_match="*\Application Data\Sun\Java\Deployment\cache\*.idx" />
             <ntfs_find path_match="*\AppData\*\Sun\Java\Deployment\cache\*.idx" />
         </sample>
-        <sample name="Sol">
+        <sample name="Flash_Sol">
             <ntfs_find path_match="*\Application Data\*\#SharedObjects\*.sol" />
             <ntfs_find path_match="*\AppData\*\#SharedObjects\*.sol" />
         </sample>
@@ -38,10 +44,6 @@
         <sample name="BITS_QMGR" MaxTotalBytes="100MB">
             <ntfs_find path_match="\Documents and Settings\All Users\Application Data\Microsoft\Network\Downloader\qmgr*.dat"/>
             <ntfs_find path_match="\ProgramData\Microsoft\Network\Downloader\qmgr*.dat"/>
-        </sample>
-        <sample name="extAttrs">
-          <ntfs_find ea_match="?*" />
-          <ntfs_exclude path="\$Extent\$UsnJrnl" ads="$J" />
         </sample>
         <!-- Add-in : Office DLL Word wll, Excel xll -->
         <sample name="Office_WLL_XLL">
@@ -64,12 +66,29 @@
           <ntfs_find path_match="*\AppData\Local\Packages\Microsoft*\LocalState\*" />
         </sample>
         <!-- CIM repository -->
-        <sample name="CIM_WMI">
+        <sample name="Cim_Wmi">
           <ntfs_find name_match="*.data" /> <!-- Objects.data mapping -->
           <ntfs_find name_match="*.map" /> <!-- Mapping(1,2,3).map mapping -->
           <ntfs_find name_match="*.btr" /> <!-- Index.btr mapping -->
           <ntfs_find name_match="*.ver" /> <!-- Only WinXP -->
           <ntfs_find path_match="*\WBEM\Repository\*" />
+        </sample>
+        <!-- Win10 timeline activities database  ActivitiesCache.db files -->
+        <sample name="W10ActivitiesCache" MaxPerSampleBytes="100MB">
+            <ntfs_find path_match="\AppData\Local\ConnectedDevicesPlatform\ActivitiesCache.*"/>
+        </sample>
+        <!-- System Resource Usage Monitor SRUDB.dat -->
+        <sample name="Sru" MaxPerSampleBytes="100MB">
+            <ntfs_find path_match="\Windows\System32\sru\*"/>
+        </sample>
+        <!-- JumpLists for recent items accessed by each application *AutomaticDestinations-ms files -->
+        <sample name="Jumplists" MaxPerSampleBytes="20MB">
+            <ntfs_find path_match="\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\*"/>
+        </sample>
+        <!-- Win Tasks -->
+        <sample name="Scheduled_Task">
+            <ntfs_find path_match="\Windows\System32\Tasks\*" />
+            <ntfs_find path_match="\Windows\SysWOW64\Tasks\*" />
         </sample>
     </samples>
 </getthis>
