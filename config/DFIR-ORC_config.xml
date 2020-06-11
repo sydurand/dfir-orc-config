@@ -55,6 +55,13 @@
             <output name="Event.log" source="StdOutErr"/>
         </command>
 
+        <command keyword="GetLogs">
+            <execute name="DFIR-ORC.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetLogs_config.xml</argument>
+            <output name="Logs.7z" source="File" argument="/out={FileName}"/>
+            <output name="Logs.log" source="StdOutErr"/>
+        </command>
+
         <command keyword="Autoruns">
             <execute name="autorunsc.exe" run="7z:#Tools|autorunsc.exe"/>
             <argument>-a * -c -h -m -s -t -accepteula</argument>
