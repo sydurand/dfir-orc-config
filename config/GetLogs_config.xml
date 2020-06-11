@@ -4,6 +4,7 @@
     <samples  MaxTotalBytes="150MB" MaxPerSampleBytes="300KB" MaxSampleCount="5000">
         <sample name="Firwall_logs">
             <ntfs_find path_match="\Windows\System32\LogFiles\Firewall\*" />
+            <ntfs_find name_match="pfirewall.log" />
         </sample>
         <sample name="CCM_logs">
             <ntfs_find path_match="\Windows\ccm\logs\*" />
@@ -15,6 +16,16 @@
         </sample>
         <sample name="WMITraceLogs">
             <ntfs_find path_match="\Windows\System32\LogFiles\WMI\*" />
+        </sample>
+        <sample name="Network">
+          <ntfs_find path_match="*\system32\dns\*.log" />
+          <ntfs_find path_match="*\system32\dhcp\*.log" />
+          <ntfs_find path_match="*\system32\drivers\etc\*" />
+        </sample>
+        <sample name="Logs">
+          <ntfs_find name="SchedLgU.txt" />
+          <ntfs_find name_match="setupapi*.log" />
+          <ntfs_find path_match="*\windows\debug\mrt.log" />
         </sample>
     </samples>
 </getthis>
