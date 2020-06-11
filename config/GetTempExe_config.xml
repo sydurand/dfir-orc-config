@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <getthis reportall="">
-  <location>%SystemDrive%\</location>
+  <location altitude="highest">%SystemDrive%\</location>
   <output password="V!ruS"/>
   <samples MaxPerSampleBytes="10MB" MaxSampleCount="512" MaxTotalBytes="200MB">
     <sample name="Temp_Exe">

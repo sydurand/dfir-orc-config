@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <getthis reportall="">
-  <location>*</location>
+  <location altitude="highest">*</location>
   <output password="V!ruS" compression="ultra"/>
   <location altitude="highest" shadow="yes">*</location>
   <samples MaxPerSampleBytes="300KB" MaxSampleCount="5000" MaxTotalBytes="150MB">
