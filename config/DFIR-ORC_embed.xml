@@ -23,7 +23,7 @@
     <file name="GetBrowserHistory_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetBrowserHistory_config.xml"/>
     <file name="GetScripts_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetScripts_config.xml"/>
     <file name="GetTempExe_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetTempExe_config.xml"/>
-    <file name="GetLogFile_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetLogFile_config.xml" />
+    <file name="GetLogs_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetLogs_config.xml" />
 
     <file name="ruleset.yara" path=".\%ORC_CONFIG_FOLDER%\ruleset.yara"/>
 
