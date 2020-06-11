@@ -17,5 +17,20 @@
         <sample>
             <ntfs_find name="DEFAULT" header="regf"/>
         </sample>
+        <sample>
+            <ntfs_find name="DRIVERS" header="regf"/>
+        </sample>
+        <sample>
+            <ntfs_find name="BBI" header="regf"/>
+        </sample>
+        <sample>
+            <ntfs_find name="ELAM" header="regf"/>
+        </sample>
+        <sample>
+          <ntfs_find name="BCD-Template" header="regf" />
+        </sample>
+        <sample>
+          <ntfs_find name="syscache.hve" header="regf" />
+        </sample>        
     </samples>
 </getthis>
