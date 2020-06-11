@@ -223,6 +223,13 @@
           <output  name="Crash.log" source="StdOut" />
         </command>
 
+        <command keyword="GetDocs" optional="yes">
+          <execute name="Orc.exe" run="self:#GetThis" />
+          <argument>/config=res:#GetDocs_config.xml</argument>
+          <output  name="Docs.7z" source="File" argument="/out={FileName}" />
+          <output  name="Docs.log" source="StdOut" />
+        </command>
+
     </archive>
 
 	<!--ORCYARA config optional does not execute by default optional="yes" parameter set-->

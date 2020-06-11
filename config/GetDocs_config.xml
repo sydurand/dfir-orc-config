@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<getthis reportall="">
+  <!-- Be careful with this submodules, you must have all the agreement
+  and you must list the files that you extract -->
+  <location altitude="highest" shadow="yes">*</location>
+  <output password="V!ruS" compression="ultra"/>
+  <samples MaxPerSampleBytes="10MB" MaxSampleCount="2048" MaxTotalBytes="450MB">
+    <sample name="pdf">
+      <ntfs_find path_match="*.pdf" />
+    </sample>
+    <sample name="docs">
+      <ntfs_find path_match="*.doc" />
+      <ntfs_find path_match="*.rtf" />
+      <ntfs_find path_match="*.docx" />
+      <ntfs_find path_match="*.xls" />
+      <ntfs_find path_match="*.xlsx" />
+      <ntfs_find path_match="*.docm" />
+      <ntfs_find path_match="*.xlsm" />
+    </sample>
+  </samples>
+</getthis>
