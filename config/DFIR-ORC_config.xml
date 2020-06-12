@@ -191,7 +191,7 @@
           <output name="GetObjInfo.log" source="StdOutErr" />
         </command>
 
-        <command keyword="GetSamples">
+        <command keyword="GetSamples" optional="yes">
           <execute name="DFIR-Orc.exe" run="self:#GetSamples" />
           <argument>/config=res:#GetSamples_config.xml /GetThisArgs="/Altitude=highest"</argument>
           <output  name="GetSamples_sampleinfo.csv"  source="File"  argument="/SampleInfo={FileName}" />
