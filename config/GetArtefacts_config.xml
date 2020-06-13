@@ -63,19 +63,17 @@
         </sample>
         <!-- Apps Art : Word, Excel, Powerpoint, OneNote, Maps -->
         <sample name="App_Office">
-          <ntfs_find name_match="*.xlm" /> <!-- Recent open files for Word, Excel and Powerpoint -->
-          <ntfs_find name_match="*.fsd" /> <!-- Cache Files for Word, Excel and Powerpoint -->
-          <ntfs_find name_match="*.bin" /> <!-- BIN files for OneNote-->
-          <ntfs_find name_match="*.ttl" /> <!-- XML Files for Maps-->
-          <ntfs_find path_match="*\AppData\Local\Packages\Microsoft*\LocalState\*" />
+          <ntfs_find path_match="*\AppData\Local\Packages\Microsoft*\LocalState\*.xlm" /> <!-- Recent open files for Word, Excel and Powerpoint -->
+          <ntfs_find path_match="*\AppData\Local\Packages\Microsoft*\LocalState\*.fsd" /> <!-- Cache Files for Word, Excel and Powerpoint -->
+          <ntfs_find path_match="*\AppData\Local\Packages\Microsoft*\LocalState\*.bin" /> <!-- BIN files for OneNote-->
+          <ntfs_find path_match="*\AppData\Local\Packages\Microsoft*\LocalState\*.ttl" /> <!-- XML Files for Maps-->
         </sample>
         <!-- CIM repository -->
         <sample name="Cim_Wmi">
-          <ntfs_find name_match="*.data" /> <!-- Objects.data mapping -->
-          <ntfs_find name_match="*.map" /> <!-- Mapping(1,2,3).map mapping -->
-          <ntfs_find name_match="*.btr" /> <!-- Index.btr mapping -->
-          <ntfs_find name_match="*.ver" /> <!-- Only WinXP -->
-          <ntfs_find path_match="*\WBEM\Repository\*" />
+          <ntfs_find path_match="*\WBEM\Repository\*.data" /> <!-- Objects.data mapping -->
+          <ntfs_find path_match="*\WBEM\Repository\*.map" /> <!-- Mapping(1,2,3).map mapping -->
+          <ntfs_find path_match="*\WBEM\Repository\*.btr" /> <!-- Index.btr mapping -->
+          <ntfs_find path_match="*\WBEM\Repository\*.ver" /> <!-- Only WinXP -->
         </sample>
         <!-- Win10 timeline activities database  ActivitiesCache.db files -->
         <sample name="W10ActivitiesCache" MaxPerSampleBytes="100MB">
