@@ -46,21 +46,14 @@
             <output name="autoruns.log" source="StdErr"/>
         </command>
 
-<<<<<<< HEAD
-        <command keyword="pe-sieve">
-=======
 <!--
         <command keyword="pe-sieve" optional="yes">
->>>>>>> offline
             <execute name="hollows_hunter.exe" run32="7z:#Tools|hollows_hunter_32.exe" run64="7z:#Tools|hollows_hunter_64.exe"/>
             <argument>/hooks /iat 1 /ofilter 1 /quiet</argument>
             <output name="pe-sieve" source="Directory" argument="/dir {DirectoryName}" />
             <output name="hollows_hunter.log" source="StdOutErr"/>
         </command>
-<<<<<<< HEAD
-=======
 -->
->>>>>>> offline
 
         <command keyword="NTFSInfo" queue="flush">
             <execute name="DFIR-ORC.exe" run="self:#NTFSInfo"/>
