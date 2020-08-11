@@ -69,5 +69,11 @@
             <ntfs_find path_match="\Documents and Settings\All Users\Application Data\Microsoft\Network\Downloader\qmgr*.dat"/>
             <ntfs_find path_match="\ProgramData\Microsoft\Network\Downloader\qmgr*.dat"/>
         </sample>
+
+        <!-- https://www.blackhat.com/docs/eu-15/materials/eu-15-Pierce-Defending-Against-Malicious-Application-Compatibility-Shims-wp.pdf -->
+        <!-- https://attack.mitre.org/techniques/T1546/011/ -->
+        <sample name="SDB">
+            <ntfs_find path_match="\Windows\AppPatch\*.sdb"/>
+        </sample>
     </samples>
 </getthis>
