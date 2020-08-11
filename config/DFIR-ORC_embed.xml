@@ -19,21 +19,33 @@
     <file name="GetSamples_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetSamples_config.xml"/>
     <file name="GetExeInTemp_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetExeInTemp_config.xml"/>
     <file name="GetScript_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetScript_config.xml"/>
-    <file name="GetADS-SDS_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetADS-SDS_config.xml"/>
+    <file name="GetADS_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetADS_config.xml"/>
+    <file name="GetSDS_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetSDS_config.xml"/>
     <file name="GetExtAttrs_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetExtAttrs_config.xml"/>
     <file name="GetArtefacts_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetArtefacts_config.xml"/>
     <file name="GetBrowserHistory_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetBrowserHistory_config.xml"/>
     <file name="GetLogs_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetLogs_config.xml"/>
-    <file name="GetExtraHives_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetExtraHives_config.xml"/>
     <File name="GetMFT_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetMFT_config.xml" />
     <File name="GetLogFile_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetLogFile_config.xml" />
     <File name="GetUSN_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetUSN_config.xml" />
     <File name="GetBoot_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetBoot_config.xml" />
 
     <!-- Offline config -->
+    <file name="FatInfoOffline_config.xml" path=".\%ORC_CONFIG_FOLDER%\FatInfoOffline_config.xml"/>
     <File name="NTFSInfoOffline_config.xml" path=".\%ORC_CONFIG_FOLDER%\NTFSInfoOffline_config.xml" />
-    <File name="GetOfflineArtefacts_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetOfflineArtefacts_config.xml" />
-
+    <File name="GetArtefactsOffline_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetArtefactsOffline_config.xml" />
+    <file name="GetSystemHivesOffline_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetSystemHivesOffline_config.xml"/>
+    <file name="GetUserHivesOffline_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetUserHivesOffline_config.xml"/>
+    <file name="GetSamHiveOffline_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetSamHiveOffline_config.xml"/>
+    <file name="GetEventsOffline_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetEventsOffline_config.xml"/>
+    <file name="GetExeInTempOffline_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetExeInTempOffline_config.xml"/>
+    <file name="GetScriptOffline_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetScriptOffline_config.xml"/>
+    <file name="GetADSOffline_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetADSOffline_config.xml"/>
+    <file name="GetBrowserHistoryOffline_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetBrowserHistoryOffline_config.xml"/>
+    <file name="GetLogsOffline_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetLogsOffline_config.xml"/>
+    <File name="GetMFTOffline_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetMFTOffline_config.xml" />
+    <File name="GetLogFileOffline_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetLogFileOffline_config.xml" />
+    <File name="GetUSNOffline_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetUSNOffline_config.xml" />
     
     <!--
     <file name="GetYaraSamples_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetYaraSamples_config.xml"/>
@@ -45,10 +57,17 @@
     <archive name="Tools" format="7z" compression="Ultra">
         <file name="DFIR-Orc_x64.exe" path=".\tools\DFIR-Orc_x64.exe"/>
         <file name="autorunsc.exe" path=".\tools\autorunsc.exe"/>
+<<<<<<< HEAD
 
         <file name="hollows_hunter_32.exe" path=".\tools\hollows_hunter_32.exe"/>
         <file name="hollows_hunter_64.exe" path=".\tools\hollows_hunter_64.exe"/>
         
+=======
+<!--
+        <file name="hollows_hunter_32.exe" path=".\tools\hollows_hunter_32.exe"/>
+        <file name="hollows_hunter_64.exe" path=".\tools\hollows_hunter_64.exe"/>
+-->        
+>>>>>>> offline
         <!-- Using MAGNET RAM Capture - https://www.magnetforensics.com/resources/magnet-ram-capture/ -->
         <file name="MRC.exe" path=".\tools\MRCv120.exe"/>
     </archive>

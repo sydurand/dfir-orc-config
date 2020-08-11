@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<getthis reportall="">
+    <location>%OfflineLocation%</location>
+    <samples MaxTotalBytes="2048MB">
+        <sample name="MFT">
+            <ntfs_find path="\$MFT" />
+        </sample>
+    </samples>
+</getthis>

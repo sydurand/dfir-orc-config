@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<getthis reportall="">
+    <location shadows="yes">%OfflineLocation%</location>
+    <samples MaxTotalBytes="100GB">
+        <sample name="INF">
+            <ntfs_find name_match="*.inf"/>
+            <ntfs_exclude path_match="\Windows\*.inf"/>
+            <ntfs_exclude path_match="\Program Files\*.inf"/>
+            <ntfs_exclude path_match="\Program Files (x86)\*.inf"/>
+        </sample>
+
+        <sample name="Prefetch">
+            <ntfs_find path_match="\Windows\Prefetch\*.pf"/>
+            <ntfs_find path_match="\Windows\Prefetch\layout.ini"/>
+        </sample>
+
+        <sample name="SuperFetch">
+            <ntfs_find name_match="Ag*.db"/>
+        </sample>
+        
+        <sample name="Lnk">
+            <ntfs_find name_match="*.lnk"/>
+        </sample>
+        
+        <sample name="Java_Idx">
+            <ntfs_find path_match="*\Application Data\Sun\Java\Deployment\cache\*.idx" />
+            <ntfs_find path_match="*\AppData\*\Sun\Java\Deployment\cache\*.idx" />
+        </sample>
+        
+        <sample name="Flash_Sol">
+            <ntfs_find path_match="*\Application Data\*\#SharedObjects\*.sol" />
+            <ntfs_find path_match="*\AppData\*\#SharedObjects\*.sol" />
+        </sample>
+
+        <sample name="scheduled_task">
+            <ntfs_find path_match="\Windows\System32\Tasks\*" />
+            <ntfs_find path_match="\Windows\SysWOW64\Tasks\*" />
+        </sample>
+
+        <sample name="WMI_Forensics">
+            <ntfs_find path_match="\Windows\System32\wbem\Repository\OBJECTS.DATA" />
+            <ntfs_find path_match="\Windows\System32\wbem\Repository\FS\OBJECTS.DATA" />
+        </sample>
+
+        <sample name="JumpLists">
+            <ntfs_find path_match="\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations\*"/>
+        </sample>
+
+        <sample name="SRU">
+            <ntfs_find path_match="\Windows\System32\sru\*"/>
+        </sample>
+
+        <sample name="W10ActivitiesCache">
+            <ntfs_find path_match="\AppData\Local\ConnectedDevices Platform\L.*\ActivitiesCache.*"/>
+        </sample>
+
+        <sample name="AmCache">
+            <ntfs_find path_match="\Windows\AppCompat\Programs\*"/>
+        </sample>
+
+        <sample name="RDP_BMC">
+            <ntfs_find path_match="\Documents and Settings\*\Local Settings\Application Data\Microsoft\Terminal Server Client\Cache\*.bmc"/>
+            <ntfs_find path_match="\Documents and Settings\*\Local Settings\Application Data\Microsoft\Terminal Server Client\Cache\*.bin"/>
+            <ntfs_find path_match="\Users\*\AppData\Local\Microsoft\Terminal Server Client\Cache\*.bmc"/>
+            <ntfs_find path_match="\Users\*\AppData\Local\Microsoft\Terminal Server Client\Cache\*.bin"/>
+        </sample>
+
+        <sample name="BITS_QMGR">
+            <ntfs_find path_match="\Documents and Settings\All Users\Application Data\Microsoft\Network\Downloader\qmgr*.dat"/>
+            <ntfs_find path_match="\ProgramData\Microsoft\Network\Downloader\qmgr*.dat"/>
+        </sample>
+    </samples>
+</getthis>
