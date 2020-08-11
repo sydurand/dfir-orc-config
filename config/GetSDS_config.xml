@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <getthis reportall="">
-    <location altitude="highest">%SystemDrive%</location>
+    <location altitude="highest">*</location>
     <samples MaxPerSampleBytes="20MB" MaxSampleCount="200000" MaxTotalBytes="250MB">
         <sample name="SDS">
             <ntfs_find name="$Secure" ads="$SDS" />
