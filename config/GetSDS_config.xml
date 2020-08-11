@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<getthis reportall="">
+    <location altitude="highest">%SystemDrive%</location>
+    <samples MaxPerSampleBytes="20MB" MaxSampleCount="200000" MaxTotalBytes="250MB">
+        <sample name="SDS">
+            <ntfs_find name="$Secure" ads="$SDS" />
+            <ntfs_find attr_name="$SII" attr_type="$INDEX_ALLOCATION"/>
+        </sample>
+    </samples>
+</getthis>

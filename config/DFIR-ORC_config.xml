@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <wolf childdebug="no" command_timeout="600" werdontshowui="on">
     <log disposition="truncate">DFIR-ORC_{SystemType}_{FullComputerName}_{TimeStamp}.log</log>
+    <outline disposition="truncate">DFIR-ORC_{SystemType}_{FullComputerName}.json</outline>
 
     <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Main.7z" keyword="Main" concurrency="2" repeat="Once" compression="normal">
-        <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="2G" ElapsedTimeLimit="30"/>
+        <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="2G" ElapsedTimeLimit="120"/>
 
         <command keyword="SystemInfo">
             <execute name="systeminfo.exe" run="%windir%\System32\systeminfo.exe"/>
@@ -19,12 +20,40 @@
             <output name="processes.log" source="StdOutErr"/>
         </command>
 
-        <command keyword="Autoruns">
+        <command keyword="BITS" winver="6.0+">
+            <execute name="bitsadmin.exe" run="%windir%\System32\bitsadmin.exe" />
+            <argument>/list /allusers /verbose</argument>
+            <output  name="BITS.txt" source="StdOutErr" />
+        </command>
+
+        <command keyword="ShadowsList">
+            <execute name="DFIR-Orc.exe" run="self:#NTFSUtil" />
+            <argument>/vss</argument>
+            <output  name="ShadowsList.csv" source="File" argument="/out={FileName}" />
+            <output  name="ShadowsList.log" source="StdOutErr" />
+        </command>
+
+        <command keyword="Locations">
+            <execute name="DFIR-Orc.exe" run="self:#NTFSUtil" />
+            <argument>/enumlocs</argument>
+            <output name="Locations.txt" source="StdOutErr" />
+        </command>
+
+        <command keyword="Autoruns" optional="yes">
             <execute name="autorunsc.exe" run="7z:#Tools|autorunsc.exe"/>
             <argument>-a * -c -h -m -s -t -accepteula</argument>
             <output name="autoruns.csv" source="StdOut"/>
             <output name="autoruns.log" source="StdErr"/>
         </command>
+
+<!--
+        <command keyword="pe-sieve" optional="yes">
+            <execute name="hollows_hunter.exe" run32="7z:#Tools|hollows_hunter_32.exe" run64="7z:#Tools|hollows_hunter_64.exe"/>
+            <argument>/hooks /iat 1 /ofilter 1 /quiet</argument>
+            <output name="pe-sieve" source="Directory" argument="/dir {DirectoryName}" />
+            <output name="hollows_hunter.log" source="StdOutErr"/>
+        </command>
+-->
 
         <command keyword="NTFSInfo" queue="flush">
             <execute name="DFIR-ORC.exe" run="self:#NTFSInfo"/>
@@ -69,6 +98,12 @@
 			<output  name="BootCode.7z" source="File" argument="/LegacyBootCode /Out={FileName}" />
 			<output  name="BootCode.log" source="StdOutErr" />
 		</command>
+
+	    <command keyword="GetUefi">
+			<execute name="DFIR-Orc.exe" run="self:#GetSectors" />
+			<output  name="Uefi.7z" source="File" argument="/UefiFull /Out={FileName}" />
+			<output  name="Uefi.log" source="StdOutErr" />
+		</command>
     </archive>
 
     <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Artefacts.7z" keyword="Artefacts" concurrency="2" repeat="Once" compression="fast" optional="no">
@@ -108,11 +143,18 @@
 			<output  name="Scripts.log" source="StdOutErr" />
 		</command>
 
-		<command keyword="GetADS-SDS">
+		<command keyword="GetADS">
 			<execute name="DFIR-ORC.exe" run="self:#GetThis" />
-			<argument>/config=res:#GetADS-SDS_config.xml</argument>
-			<output  name="ADS-SDS.7z" source="File" argument="/out={FileName}" />
-			<output  name="ADS-SDS.log" source="StdOutErr" />
+			<argument>/config=res:#GetADS_config.xml</argument>
+			<output  name="ADS.7z" source="File" argument="/out={FileName}" />
+			<output  name="ADS.log" source="StdOutErr" />
+		</command>
+
+		<command keyword="GetSDS" optional="yes">
+			<execute name="DFIR-ORC.exe" run="self:#GetThis" />
+			<argument>/config=res:#GetSDS_config.xml</argument>
+			<output  name="SDS.7z" source="File" argument="/out={FileName}" />
+			<output  name="SDS.log" source="StdOutErr" />
 		</command>
 
 		<command keyword="GetExtAttrs" optional="yes">
@@ -165,16 +207,9 @@
             <output name="SAM.7z" source="File" argument="/out={FileName}"/>
             <output name="SAM.log" source="StdOutErr"/>
         </command>
-
-        <command keyword="GetExtraHive" optional="yes">
-            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
-            <argument>/config=res:#GetExtraHives_config.xml</argument>
-            <output name="Extra.7z" source="File" argument="/out={FileName}"/>
-            <output name="Extra.log" source="StdOutErr"/>
-        </command>
     </archive>
 
-    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Browsers.7z" keyword="Browsers" concurrency="2" repeat="Once" compression="fast" optional="yes">
+    <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Browsers.7z" keyword="Browsers" concurrency="2" repeat="Once" compression="fast">
         <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="3G" ElapsedTimeLimit="30"/>
 
         <command keyword="GetBrowserHistroy">
@@ -229,10 +264,10 @@
     </archive>
 
 	<archive name="DFIR-ORC_Offline.7z" keyword="ORC_Offline" concurrency="3" repeat="Once" compression="None" optional="yes">
-		<restrictions JobMemoryLimit="4G" ProcessMemoryLimit="2G" ElapsedTimeLimit="360" />
+		<restrictions ElapsedTimeLimit="360" />
 
 		<command keyword="OfflineNTFSInfo" queue="flush">
-			<execute name="Orc.exe" run="self:#" />
+			<execute name="DFIR-Orc.exe" run="self:#" />
 			<argument>NTFSInfo</argument>
 			<argument>/config=res:#NTFSInfoOffline_config.xml</argument>
 			<output  name="NTFSInfo_i30Info.7z" source="File" argument="/i30info={FileName}"/>
@@ -241,19 +276,115 @@
 			<output  name="NTFSInfo_offline.log" source="StdOut" />
 		</command>
 
+        <command keyword="OfflineFatInfo"  optional="yes">
+            <execute name="DFIR-Orc.exe" run="self:#FatInfo"/>
+            <argument>/config=res:#FatInfoOffline_config.xml</argument>
+            <output name="FatInfoOffline.7z" source="File" argument="/out={FileName}"/>
+            <output name="FatInfoOffline.log" source="StdOutErr"/>
+        </command>
+
 		<command keyword="GetOfflineLegacyBootCode">
-			<execute name="Orc.exe" run="self:#GetSectors" />
+			<execute name="DFIR-Orc.exe" run="self:#GetSectors" />
 			<output  name="OfflineBootCode.7z" source="File" argument="/LegacyBootCode /Out={FileName}" />
 			<output  name="OfflineBootCode.log" source="StdOut" />
 		</command>
 
-        <command keyword="GetOfflineArtefacts">
+		<command keyword="GetOfflineUefi">
+			<execute name="DFIR-Orc.exe" run="self:#GetSectors" />
+			<output  name="OfflineUefi.7z" source="File" argument="/UefiFull /Out={FileName}" />
+			<output  name="OfflineUefi.log" source="StdOut" />
+		</command>
+
+        <command keyword="GetArtefactsOffline">
             <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
-            <argument>/config=res:#GetOfflineArtefacts_config.xml</argument>
+            <argument>/config=res:#GetArtefactsOffline_config.xml</argument>
             <output name="OfflineArtefacts.7z" source="File" argument="/out={FileName}"/>
             <output name="OfflineArtefacts.log" source="StdOutErr"/>
 		</command>
 
+        <command keyword="GetADSOffline">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetADSOffline_config.xml</argument>
+            <output name="OfflineADS.7z" source="File" argument="/out={FileName}"/>
+            <output name="OfflineADS.log" source="StdOutErr"/>
+		</command>
+
+        <command keyword="GetBrowserHistoryOffline">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetBrowserHistoryOffline_config.xml</argument>
+            <output name="OfflineBrowserHistory.7z" source="File" argument="/out={FileName}"/>
+            <output name="OfflineBrowserHistory.log" source="StdOutErr"/>
+		</command>
+
+        <command keyword="GetEventsOffline">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetEventsOffline_config.xml</argument>
+            <output name="OfflineEvents.7z" source="File" argument="/out={FileName}"/>
+            <output name="OfflineEvents.log" source="StdOutErr"/>
+		</command>
+
+        <command keyword="GetExeInTempOffline">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetExeInTempOffline_config.xml</argument>
+            <output name="OfflineExeInTemp.7z" source="File" argument="/out={FileName}"/>
+            <output name="OfflineExeInTemp.log" source="StdOutErr"/>
+		</command>
+
+        <command keyword="GetLogFileOffline">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetLogFileOffline_config.xml</argument>
+            <output name="OfflineLogFile.7z" source="File" argument="/out={FileName}"/>
+            <output name="OfflineLogFile.log" source="StdOutErr"/>
+		</command>
+
+        <command keyword="GetLogsOffline">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetLogsOffline_config.xml</argument>
+            <output name="OfflineLogs.7z" source="File" argument="/out={FileName}"/>
+            <output name="OfflineLogs.log" source="StdOutErr"/>
+		</command>
+
+        <command keyword="GetMFTOffline">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetMFTOffline_config.xml</argument>
+            <output name="OfflineMFT.7z" source="File" argument="/out={FileName}"/>
+            <output name="OfflineMFT.log" source="StdOutErr"/>
+		</command>
+
+        <command keyword="GetSamHiveOffline">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetSamHiveOffline_config.xml</argument>
+            <output name="OfflineSamHive.7z" source="File" argument="/out={FileName}"/>
+            <output name="OfflineSamHive.log" source="StdOutErr"/>
+		</command>
+
+        <command keyword="GetScriptOffline">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetScriptOffline_config.xml</argument>
+            <output name="OfflineScript.7z" source="File" argument="/out={FileName}"/>
+            <output name="OfflineScript.log" source="StdOutErr"/>
+		</command>
+
+        <command keyword="GetSystemHivesOffline">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetSystemHivesOffline_config.xml</argument>
+            <output name="OfflineSystemHives.7z" source="File" argument="/out={FileName}"/>
+            <output name="OfflineSystemHives.log" source="StdOutErr"/>
+		</command>
+
+        <command keyword="GetUserHivesOffline">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetUserHivesOffline_config.xml</argument>
+            <output name="OfflineUserHives.7z" source="File" argument="/out={FileName}"/>
+            <output name="OfflineUserHives.log" source="StdOutErr"/>
+		</command>
+
+        <command keyword="GetUSNOffline">
+            <execute name="DFIR-Orc.exe" run="self:#GetThis"/>
+            <argument>/config=res:#GetUSNOffline_config.xml</argument>
+            <output name="OfflineUSN.7z" source="File" argument="/out={FileName}"/>
+            <output name="OfflineUSN.log" source="StdOutErr"/>
+		</command>
 	</archive>
 
 <!--

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<getthis reportall="">
+    <location>%OfflineLocation%</location>
+    <samples MaxPerSampleBytes="20MB" MaxSampleCount="200000" MaxTotalBytes="250MB">
+        <sample name="ADS">
+            <ntfs_find  ads_match="?*" />
+            <ntfs_exclude path="\$UpCase" ads="$Info" />
+            <ntfs_exclude path="\$Extend\$UsnJrnl" ads="$J" />
+            <ntfs_exclude path="\$BadClus" ads="$Bad" />
+            <ntfs_exclude path="\$Bitmap" ads="$SRAT" />
+            <ntfs_exclude path="\$Extend\$RmMetadata\$Repair" ads="$Corrupt" />
+            <ntfs_exclude path="\$Extend\$RmMetadata\$Repair" ads="$Verify" />
+            <ntfs_exclude path="\$Secure" ads="$SDS" />
+            <ntfs_exclude path="\$Extend\$RmMetadata\$TxfLog\$Tops" ads="$T" />
+        </sample>
+    </samples>
+</getthis>
