@@ -44,6 +44,20 @@
             <ntfs_find path_match="*\AppData\Local\Microsoft\Windows\*\History.ie5\*.dat"/>
             <ntfs_find path_match="*\AppData\*\Microsoft\Windows\*Cookies\*"/>
         </sample>
+
+        <!-- https://www.foxtonforensics.com/browser-history-examiner/microsoft-edge-history-location -->
+        <!-- https://www.linkedin.com/pulse/windows-10-microsoft-edge-browser-forensics-brent-muir -->
+        <sample name="Edge">
+            <ntfs_find path_match="*\AppData\Local\Packages\Microsoft.MicrosoftEdge_*\AC\MicrosoftEdge\User\Default\DataStore\Data\nouser1\*\DBStore\*"/>
+            <ntfs_find path_match="*\AppData\Local\Packages\Microsoft.MicrosoftEdge_*\AC\MicrosoftEdge\User\Default\Favorites\*"/>
+            <ntfs_find path_match="*\AppData\Local\Packages\Microsoft.MicrosoftEdge_*\AC\MicrosoftEdge\User\Default\Recovery\*"/>
+            <ntfs_find path_match="*\AppData\Local\Microsoft\Edge\User Data\Default\*History*"/>
+            <ntfs_find path_match="*\AppData\Local\Microsoft\Edge\User Data\Default\*Cookies*"/>
+            <ntfs_find path_match="*\AppData\Local\Microsoft\Edge\User Data\Default\*Shortcuts*"/>
+            <ntfs_find path_match="*\AppData\Local\Microsoft\Edge\User Data\Default\*Favicons*"/>
+            <ntfs_find path_match="*\AppData\Local\Microsoft\Edge\User Data\Default\*Top Sites*"/>
+            <ntfs_find path_match="*\AppData\Local\Microsoft\Edge\User Data\Default\*Login Data*"/>
+        </sample>
     </samples>
 </getthis>
 
