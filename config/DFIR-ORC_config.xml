@@ -118,8 +118,8 @@
         <command keyword="GetEvents">
             <execute name="DFIR-ORC.exe" run="self:#GetThis"/>
             <argument>/config=res:#GetEvents_config.xml</argument>
-            <output name="Event.7z" source="File" argument="/out={FileName}"/>
-            <output name="Event.log" source="StdOutErr"/>
+            <output name="Events.7z" source="File" argument="/out={FileName}"/>
+            <output name="Events.log" source="StdOutErr"/>
         </command>
 
         <command keyword="GetLogs">
