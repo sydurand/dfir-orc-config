@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <ntfsinfo walker="MFT" resurrect="yes">
-  <location>%OfflineLocation%</location>
-  <columns>
+    <location>%OfflineLocation%</location>
+    <columns>
         <default>ComputerName,VolumeID,Default,ExtendedAttribute,EASize,FirstBytes,ADS</default>
         <omit SizeGT="5M">MD5,SHA1</omit>
         <add HasPE="">MD5,SHA1,Details,Authenticode</add>
-  </columns>
+    </columns>
 </ntfsinfo>
