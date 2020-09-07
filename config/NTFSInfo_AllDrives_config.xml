@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<ntfsinfo walker="MFT" resurrect="yes">
+    <location altitude="highest">*</location>
+    <columns>
+        <default>ComputerName,VolumeID,Default,ADS,ExtendedAttribute,EASize,FirstBytes</default>
+        <omit SizeGT="5M">MD5,SHA1</omit>
+        <add HasPE="">MD5,SHA1,Details</add>
+    </columns>
+</ntfsinfo>

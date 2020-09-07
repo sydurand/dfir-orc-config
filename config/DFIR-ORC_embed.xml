@@ -13,6 +13,8 @@
     <file name="GetSamHive_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetSamHive_config.xml"/>
     <file name="GetEvents_config.xml" path=".\%ORC_CONFIG_FOLDER%\GetEvents_config.xml"/>
     <file name="NTFSInfo_config.xml" path=".\%ORC_CONFIG_FOLDER%\NTFSInfo_config.xml"/>
+    <file name="NTFSInfo_AllDrives_config.xml" path=".\%ORC_CONFIG_FOLDER%\NTFSInfo_AllDrives_config.xml"/>
+    <file name="NTFSInfo_SystemDrive_config.xml" path=".\%ORC_CONFIG_FOLDER%\NTFSInfo_SystemDrive_config.xml"/>
     <file name="NTFSInfoHashPE_config.xml" path=".\%ORC_CONFIG_FOLDER%\NTFSInfoHashPE_config.xml"/>
     <file name="FatInfo_config.xml" path=".\%ORC_CONFIG_FOLDER%\FatInfo_config.xml"/>
     <file name="FatInfoHashPE_config.xml" path=".\%ORC_CONFIG_FOLDER%\FatInfoHashPE_config.xml"/>

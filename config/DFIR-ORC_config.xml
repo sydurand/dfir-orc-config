@@ -109,6 +109,24 @@
     <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Artefacts.7z" keyword="Artefacts" concurrency="2" repeat="Once" compression="fast" optional="no">
         <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="2G" ElapsedTimeLimit="60"/>
 
+        <command keyword="NTFSInfo_AllDrives" systemtype="DomainController|Workstation" queue="flush" >
+            <execute name="DFIR-Orc.exe" run="self:#NTFSInfo" />
+            <argument>/config=res:#NTFSInfo_AllDrives_config.xml</argument>
+            <output name="NTFSInfo_i30Info.7z" source="File" argument="/i30info={FileName}"/>
+            <output name="NTFSInfo_SecDesc.7z" source="File" argument="/SecDescr={FileName}"/>
+            <output name="NTFSInfo_detail.7z"  source="File" argument="/out={FileName}" />
+            <output name="NTFSInfo_detail.log" source="StdOutErr" />
+        </command>
+
+        <command keyword="NTFSInfo_SystemDrive" systemtype="Server" queue="flush" >
+            <execute name="DFIR-Orc.exe" run="self:#NTFSInfo" />
+            <argument>/config=res:#NTFSInfo_SystemDrive_config.xml</argument>
+            <output name="NTFSInfo_i30Info.7z" source="File" argument="/i30info={FileName}"/>
+            <output name="NTFSInfo_SecDesc.7z" source="File" argument="/SecDescr={FileName}"/>
+            <output name="NTFSInfo_detail.7z"  source="File" argument="/out={FileName}" />
+            <output name="NTFSInfo_detail.log" source="StdOutErr" />
+        </command>
+
         <command keyword="GetObjInfo">
 			<execute name="DFIR-Orc.exe" run="self:#ObjInfo" />
 			<output name="GetObjInfo.csv" source="File" argument="/out={FileName}" />
