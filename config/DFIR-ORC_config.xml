@@ -107,7 +107,7 @@
     </archive>
 
     <archive name="DFIR-ORC_{SystemType}_{FullComputerName}_Artefacts.7z" keyword="Artefacts" concurrency="2" repeat="Once" compression="fast" optional="no">
-        <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="2G" ElapsedTimeLimit="60"/>
+        <restrictions JobMemoryLimit="3G" ProcessMemoryLimit="2G" ElapsedTimeLimit="360"/>
 
         <command keyword="NTFSInfo_AllDrives" systemtype="DomainController|Workstation" queue="flush" >
             <execute name="DFIR-Orc.exe" run="self:#NTFSInfo" />
